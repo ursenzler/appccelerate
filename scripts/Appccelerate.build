@@ -211,7 +211,8 @@
       </in>
       <do>
         <property name="project" value="${path::get-file-name(folder)}" />
-
+		<property name="project" value="${string::replace(project, '.Net35', '')}" />
+		
         <copy overwrite="false" todir="${binaries}\${build_config}\${project}" flatten="false">
           <fileset basedir="${folder}/bin/${build_config}">
             <include name="**/${project}.dll" />

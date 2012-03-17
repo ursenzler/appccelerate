@@ -115,6 +115,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appccelerate.SourceTemplate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appccelerate.SourceTemplates.Test", "Appccelerate.SourceTemplates.Test\Appccelerate.SourceTemplates.Test.csproj", "{64E11D74-6B4C-4E47-A117-8BA52A69D7EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appccelerate.Fundamentals.Net35", "Appccelerate.Fundamentals.Net35\Appccelerate.Fundamentals.Net35.csproj", "{FE7444F2-29E6-41BC-BF07-81B50924A12F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -743,6 +745,21 @@ Global
 		{64E11D74-6B4C-4E47-A117-8BA52A69D7EC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{64E11D74-6B4C-4E47-A117-8BA52A69D7EC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{64E11D74-6B4C-4E47-A117-8BA52A69D7EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.DebugWithCodeAnalysis|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.DebugWithCodeAnalysis|Any CPU.Build.0 = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.DebugWithCodeAnalysis|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.DebugWithCodeAnalysis|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.DebugWithCodeAnalysis|x86.ActiveCfg = Debug|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -751,6 +768,7 @@ Global
 		{14C65FF5-CB4D-4B5A-BA7B-47D0D504F091} = {3528786D-A0F8-484F-92FE-E8B4223B352F}
 		{DB74DA37-0D6A-49FD-818D-A1976BBD4A25} = {3528786D-A0F8-484F-92FE-E8B4223B352F}
 		{F2D5C375-C650-4DED-A85E-8DA8EC09927A} = {3528786D-A0F8-484F-92FE-E8B4223B352F}
+		{FE7444F2-29E6-41BC-BF07-81B50924A12F} = {3528786D-A0F8-484F-92FE-E8B4223B352F}
 		{7BDE66B4-C478-4D7B-917A-E0E75DA7F3EC} = {CC560A66-F89B-4838-A177-FF093A09CD1C}
 		{7091C6F0-1064-452A-B968-314629505ACF} = {CC560A66-F89B-4838-A177-FF093A09CD1C}
 		{FEC7EF75-A238-4FE2-976C-2DBA8EEADC13} = {CC560A66-F89B-4838-A177-FF093A09CD1C}
