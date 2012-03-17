@@ -18,69 +18,191 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventBroker.cs" />
-    <Compile Include="EventPublicationAttribute.cs" />
-    <Compile Include="EventSubscriptionAttribute.cs" />
+    <Compile Include="EventBroker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventPublicationAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventSubscriptionAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="EventTopicFireDelegate.cs" />
-    <Compile Include="Exceptions\EventBrokerException.cs" />
-    <Compile Include="Exceptions\ExceptionHandlingContext.cs" />
-    <Compile Include="Extensions\EventBrokerExtensionBase.cs" />
-    <Compile Include="Factories\StandardFactory.cs" />
-    <Compile Include="Factories\UnitTestFactory.cs" />
+    <Compile Include="Exceptions\EventBrokerException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\ExceptionHandlingContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\EventBrokerExtensionBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Factories\StandardFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Factories\UnitTestFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="HandlerKind.cs" />
-    <Compile Include="HandlerRestriction.cs" />
-    <Compile Include="Handlers\Background.cs" />
-    <Compile Include="Handlers\EventBrokerHandlerBase.cs" />
-    <Compile Include="Handlers\NotUserInterfaceThreadException.cs" />
-    <Compile Include="Handlers\Publisher.cs" />
-    <Compile Include="Handlers\UserInterface.cs" />
-    <Compile Include="Handlers\UserInterfaceAsync.cs" />
-    <Compile Include="Handlers\UserInterfaceSyncContextHolder.cs" />
-    <Compile Include="IEventBroker.cs" />
-    <Compile Include="IEventBrokerExtension.cs" />
-    <Compile Include="IEventBrokerRegisterable.cs" />
-    <Compile Include="IEventRegistrar.cs" />
-    <Compile Include="IEventTopic.cs" />
-    <Compile Include="IEventTopicHost.cs" />
-    <Compile Include="IEventTopicInfo.cs" />
-    <Compile Include="IExtensionHost.cs" />
-    <Compile Include="IHandler.cs" />
-    <Compile Include="INamedItem.cs" />
-    <Compile Include="Internals\EventInspector.cs" />
-    <Compile Include="Internals\EventTopic.cs" />
-    <Compile Include="Internals\EventTopicHost.cs" />
-    <Compile Include="Internals\Exceptions\EventTopicException.cs" />
-    <Compile Include="Internals\Exceptions\InvalidPublicationSignatureException.cs" />
-    <Compile Include="Internals\Exceptions\InvalidSubscriptionSignatureException.cs" />
-    <Compile Include="Internals\Exceptions\PublisherEventNotFoundException.cs" />
-    <Compile Include="Internals\Exceptions\RepeatedPublicationException.cs" />
-    <Compile Include="Internals\Exceptions\RepeatedSubscriptionException.cs" />
-    <Compile Include="Internals\Exceptions\StaticPublisherEventException.cs" />
-    <Compile Include="Internals\Exceptions\StaticSubscriberHandlerException.cs" />
-    <Compile Include="Internals\Exceptions\SubscriberHandlerNotFoundException.cs" />
-    <Compile Include="Internals\GlobalMatchers\GlobalMatchersHost.cs" />
-    <Compile Include="Internals\GlobalMatchers\IGlobalMatchersHost.cs" />
-    <Compile Include="Internals\GlobalMatchers\IGlobalMatchersProvider.cs" />
-    <Compile Include="Internals\IEventInspector.cs" />
-    <Compile Include="Internals\IFactory.cs" />
-    <Compile Include="Internals\Publications\CodePublication.cs" />
-    <Compile Include="Internals\Publications\PropertyPublication.cs" />
-    <Compile Include="Internals\Publications\Publication.cs" />
-    <Compile Include="Internals\Publications\SpontaneousPublication.cs" />
-    <Compile Include="Internals\Subscriptions\Subscription.cs" />
-    <Compile Include="IPublication.cs" />
-    <Compile Include="ISubscription.cs" />
-    <Compile Include="Matchers\IMatcher.cs" />
-    <Compile Include="Matchers\IPublicationMatcher.cs" />
-    <Compile Include="Matchers\ISubscriptionMatcher.cs" />
-    <Compile Include="Matchers\NotAlreadyCanceled.cs" />
-    <Compile Include="Matchers\Scope\PublishGlobal.cs" />
-    <Compile Include="Matchers\Scope\PublishToChildren.cs" />
-    <Compile Include="Matchers\Scope\PublishToParents.cs" />
-    <Compile Include="Matchers\Scope\SubscribeGlobal.cs" />
-    <Compile Include="Matchers\Scope\SubscribeToChildren.cs" />
-    <Compile Include="Matchers\Scope\SubscribeToParents.cs" />
+    <Compile Include="HandlerKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HandlerRestriction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\Background.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\EventBrokerHandlerBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\NotUserInterfaceThreadException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\Publisher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\UserInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\UserInterfaceAsync.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\UserInterfaceSyncContextHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEventBroker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEventBrokerExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEventBrokerRegisterable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEventRegistrar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEventTopic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEventTopicHost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEventTopicInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IExtensionHost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="INamedItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\EventInspector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\EventTopic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\EventTopicHost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\EventTopicException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\InvalidPublicationSignatureException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\InvalidSubscriptionSignatureException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\PublisherEventNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\RepeatedPublicationException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\RepeatedSubscriptionException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\StaticPublisherEventException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\StaticSubscriberHandlerException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Exceptions\SubscriberHandlerNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\GlobalMatchers\GlobalMatchersHost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\GlobalMatchers\IGlobalMatchersHost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\GlobalMatchers\IGlobalMatchersProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\IEventInspector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\IFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Publications\CodePublication.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Publications\PropertyPublication.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Publications\Publication.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Publications\SpontaneousPublication.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internals\Subscriptions\Subscription.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPublication.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ISubscription.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\IMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\IPublicationMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\ISubscriptionMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\NotAlreadyCanceled.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\Scope\PublishGlobal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\Scope\PublishToChildren.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\Scope\PublishToParents.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\Scope\SubscribeGlobal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\Scope\SubscribeToChildren.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Matchers\Scope\SubscribeToParents.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\VersionInfo.g.cs" />
   </ItemGroup>

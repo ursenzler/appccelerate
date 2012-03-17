@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB500560-F6BA-4955-8E8D-EFC3E4398037}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Appccelerate.EventBroker</RootNamespace>
+    <AssemblyName>Appccelerate.EventBroker</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\lib\Net35\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\lib\Net35\Appccelerate.EventBroker.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Appccelerate.EventBroker\EventBroker.cs">
+      <Link>EventBroker.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\EventPublicationAttribute.cs">
+      <Link>EventPublicationAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\EventSubscriptionAttribute.cs">
+      <Link>EventSubscriptionAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\EventTopicFireDelegate.cs">
+      <Link>EventTopicFireDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Exceptions\EventBrokerException.cs">
+      <Link>Exceptions\EventBrokerException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Exceptions\ExceptionHandlingContext.cs">
+      <Link>Exceptions\ExceptionHandlingContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Extensions\EventBrokerExtensionBase.cs">
+      <Link>Extensions\EventBrokerExtensionBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Factories\StandardFactory.cs">
+      <Link>Factories\StandardFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Factories\UnitTestFactory.cs">
+      <Link>Factories\UnitTestFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\HandlerKind.cs">
+      <Link>HandlerKind.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\HandlerRestriction.cs">
+      <Link>HandlerRestriction.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Handlers\Background.cs">
+      <Link>Handlers\Background.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Handlers\EventBrokerHandlerBase.cs">
+      <Link>Handlers\EventBrokerHandlerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Handlers\NotUserInterfaceThreadException.cs">
+      <Link>Handlers\NotUserInterfaceThreadException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Handlers\Publisher.cs">
+      <Link>Handlers\Publisher.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Handlers\UserInterface.cs">
+      <Link>Handlers\UserInterface.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Handlers\UserInterfaceAsync.cs">
+      <Link>Handlers\UserInterfaceAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Handlers\UserInterfaceSyncContextHolder.cs">
+      <Link>Handlers\UserInterfaceSyncContextHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IEventBroker.cs">
+      <Link>IEventBroker.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IEventBrokerExtension.cs">
+      <Link>IEventBrokerExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IEventBrokerRegisterable.cs">
+      <Link>IEventBrokerRegisterable.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IEventRegistrar.cs">
+      <Link>IEventRegistrar.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IEventTopic.cs">
+      <Link>IEventTopic.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IEventTopicHost.cs">
+      <Link>IEventTopicHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IEventTopicInfo.cs">
+      <Link>IEventTopicInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IExtensionHost.cs">
+      <Link>IExtensionHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IHandler.cs">
+      <Link>IHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\INamedItem.cs">
+      <Link>INamedItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\EventInspector.cs">
+      <Link>Internals\EventInspector.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\EventTopic.cs">
+      <Link>Internals\EventTopic.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\EventTopicHost.cs">
+      <Link>Internals\EventTopicHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\EventTopicException.cs">
+      <Link>Internals\Exceptions\EventTopicException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\InvalidPublicationSignatureException.cs">
+      <Link>Internals\Exceptions\InvalidPublicationSignatureException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\InvalidSubscriptionSignatureException.cs">
+      <Link>Internals\Exceptions\InvalidSubscriptionSignatureException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\PublisherEventNotFoundException.cs">
+      <Link>Internals\Exceptions\PublisherEventNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\RepeatedPublicationException.cs">
+      <Link>Internals\Exceptions\RepeatedPublicationException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\RepeatedSubscriptionException.cs">
+      <Link>Internals\Exceptions\RepeatedSubscriptionException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\StaticPublisherEventException.cs">
+      <Link>Internals\Exceptions\StaticPublisherEventException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\StaticSubscriberHandlerException.cs">
+      <Link>Internals\Exceptions\StaticSubscriberHandlerException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Exceptions\SubscriberHandlerNotFoundException.cs">
+      <Link>Internals\Exceptions\SubscriberHandlerNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\GlobalMatchers\GlobalMatchersHost.cs">
+      <Link>Internals\GlobalMatchers\GlobalMatchersHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\GlobalMatchers\IGlobalMatchersHost.cs">
+      <Link>Internals\GlobalMatchers\IGlobalMatchersHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\GlobalMatchers\IGlobalMatchersProvider.cs">
+      <Link>Internals\GlobalMatchers\IGlobalMatchersProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\IEventInspector.cs">
+      <Link>Internals\IEventInspector.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\IFactory.cs">
+      <Link>Internals\IFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Publications\CodePublication.cs">
+      <Link>Internals\Publications\CodePublication.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Publications\PropertyPublication.cs">
+      <Link>Internals\Publications\PropertyPublication.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Publications\Publication.cs">
+      <Link>Internals\Publications\Publication.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Publications\SpontaneousPublication.cs">
+      <Link>Internals\Publications\SpontaneousPublication.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Internals\Subscriptions\Subscription.cs">
+      <Link>Internals\Subscriptions\Subscription.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\IPublication.cs">
+      <Link>IPublication.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\ISubscription.cs">
+      <Link>ISubscription.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\IMatcher.cs">
+      <Link>Matchers\IMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\IPublicationMatcher.cs">
+      <Link>Matchers\IPublicationMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\ISubscriptionMatcher.cs">
+      <Link>Matchers\ISubscriptionMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\NotAlreadyCanceled.cs">
+      <Link>Matchers\NotAlreadyCanceled.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\Scope\PublishGlobal.cs">
+      <Link>Matchers\Scope\PublishGlobal.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\Scope\PublishToChildren.cs">
+      <Link>Matchers\Scope\PublishToChildren.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\Scope\PublishToParents.cs">
+      <Link>Matchers\Scope\PublishToParents.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\Scope\SubscribeGlobal.cs">
+      <Link>Matchers\Scope\SubscribeGlobal.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\Scope\SubscribeToChildren.cs">
+      <Link>Matchers\Scope\SubscribeToChildren.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.EventBroker\Matchers\Scope\SubscribeToParents.cs">
+      <Link>Matchers\Scope\SubscribeToParents.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.g.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Appccelerate.Fundamentals.Net35\Appccelerate.Fundamentals.Net35.csproj">
+      <Project>{FE7444F2-29E6-41BC-BF07-81B50924A12F}</Project>
+      <Name>Appccelerate.Fundamentals.Net35</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Version.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties ProjectLinkReference="6b189709-125e-46ec-8fee-50345375f221" ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
