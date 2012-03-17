@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34D534B6-D983-454F-A5B1-8B9EDF0BEA9B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Appccelerate.StateMachine.Net35</RootNamespace>
+    <AssemblyName>Appccelerate.StateMachine.Net35</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Appccelerate.StateMachine\ActiveStateMachine.cs">
+      <Link>ActiveStateMachine.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\EventInformation.cs">
+      <Link>EventInformation.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Extensions\ExtensionBase.cs">
+      <Link>Extensions\ExtensionBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\HistoryType.cs">
+      <Link>HistoryType.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\InitializationInformation.cs">
+      <Link>InitializationInformation.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\IStateMachine.cs">
+      <Link>IStateMachine.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\IStateMachineInformation.cs">
+      <Link>IStateMachineInformation.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ActionHolders\ActionHolder.cs">
+      <Link>Machine\ActionHolders\ActionHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ActionHolders\ActionHoldersExceptionMessages.cs">
+      <Link>Machine\ActionHolders\ActionHoldersExceptionMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ActionHolders\ActionHolder{T}.cs">
+      <Link>Machine\ActionHolders\ActionHolder{T}.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ActionHolders\ArgumentLessTransitionActionHolder.cs">
+      <Link>Machine\ActionHolders\ArgumentLessTransitionActionHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ActionHolders\ArgumentTransitionActionHolder.cs">
+      <Link>Machine\ActionHolders\ArgumentTransitionActionHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ActionHolders\IActionHolder.cs">
+      <Link>Machine\ActionHolders\IActionHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ActionHolders\ITransitionActionHolder.cs">
+      <Link>Machine\ActionHolders\ITransitionActionHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Contexts\StateContext.cs">
+      <Link>Machine\Contexts\StateContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Contexts\TransitionContext.cs">
+      <Link>Machine\Contexts\TransitionContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Events\ContextEventArgs.cs">
+      <Link>Machine\Events\ContextEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Events\ExceptionEventArgs.cs">
+      <Link>Machine\Events\ExceptionEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Events\IFactory.cs">
+      <Link>Machine\Events\IFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Events\TransitionCompletedEventArgs.cs">
+      <Link>Machine\Events\TransitionCompletedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Events\TransitionEventArgs.cs">
+      <Link>Machine\Events\TransitionEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Events\TransitionExceptionEventArgs.cs">
+      <Link>Machine\Events\TransitionExceptionEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ExceptionMessages.cs">
+      <Link>Machine\ExceptionMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\GuardHolders\ArgumentGuardHolder.cs">
+      <Link>Machine\GuardHolders\ArgumentGuardHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\GuardHolders\ArgumentLessGuardHolder.cs">
+      <Link>Machine\GuardHolders\ArgumentLessGuardHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\GuardHolders\GuardHoldersExceptionMessages.cs">
+      <Link>Machine\GuardHolders\GuardHoldersExceptionMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\GuardHolders\IGuardHolder.cs">
+      <Link>Machine\GuardHolders\IGuardHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\HierarchyBuilder.cs">
+      <Link>Machine\HierarchyBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\IExtension.cs">
+      <Link>Machine\IExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\IExtensionHost.cs">
+      <Link>Machine\IExtensionHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Initializable.cs">
+      <Link>Machine\Initializable.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\INotifier.cs">
+      <Link>Machine\INotifier.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\IState.cs">
+      <Link>Machine\IState.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\IStateContext.cs">
+      <Link>Machine\IStateContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\IStateDictionary.cs">
+      <Link>Machine\IStateDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\IStateMachineReport.cs">
+      <Link>Machine\IStateMachineReport.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ITransition.cs">
+      <Link>Machine\ITransition.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ITransitionContext.cs">
+      <Link>Machine\ITransitionContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ITransitionDictionary.cs">
+      <Link>Machine\ITransitionDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\ITransitionResult.cs">
+      <Link>Machine\ITransitionResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\RecordType.cs">
+      <Link>Machine\RecordType.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\StandardFactory.cs">
+      <Link>Machine\StandardFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\StateBuilder.g.cs">
+      <Link>Machine\StateBuilder.g.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\StateDictionary.cs">
+      <Link>Machine\StateDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\StateMachine.cs">
+      <Link>Machine\StateMachine.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\StateMachineInitializer.cs">
+      <Link>Machine\StateMachineInitializer.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\States\State.cs">
+      <Link>Machine\States\State.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\States\StatesExceptionMessages.cs">
+      <Link>Machine\States\StatesExceptionMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Transitions\Transition.cs">
+      <Link>Machine\Transitions\Transition.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Transitions\TransitionDictionary.cs">
+      <Link>Machine\Transitions\TransitionDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Transitions\TransitionInfo.cs">
+      <Link>Machine\Transitions\TransitionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Transitions\TransitionResult.cs">
+      <Link>Machine\Transitions\TransitionResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Machine\Transitions\TransitionsExceptionMessages.cs">
+      <Link>Machine\Transitions\TransitionsExceptionMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\PassiveStateMachine.cs">
+      <Link>PassiveStateMachine.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Reports\CsvStateMachineReportGenerator.cs">
+      <Link>Reports\CsvStateMachineReportGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Reports\CsvStatesWriter.cs">
+      <Link>Reports\CsvStatesWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Reports\CsvTransitionsWriter.cs">
+      <Link>Reports\CsvTransitionsWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Reports\StateMachineReportGenerator.cs">
+      <Link>Reports\StateMachineReportGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Reports\YEdStateMachineReportGenerator.cs">
+      <Link>Reports\YEdStateMachineReportGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IEntryActionSyntax.cs">
+      <Link>Syntax\IEntryActionSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IEventSyntax.cs">
+      <Link>Syntax\IEventSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IExitActionSyntax.cs">
+      <Link>Syntax\IExitActionSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IGotoInIfSyntax.cs">
+      <Link>Syntax\IGotoInIfSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IGotoSyntax.cs">
+      <Link>Syntax\IGotoSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IHierarchySyntax.cs">
+      <Link>Syntax\IHierarchySyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IIfOrOtherwiseSyntax.cs">
+      <Link>Syntax\IIfOrOtherwiseSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IIfSyntax.cs">
+      <Link>Syntax\IIfSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IOnSyntax.cs">
+      <Link>Syntax\IOnSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\Appccelerate.StateMachine\Syntax\IOtherwiseSyntax.cs">
+      <Link>Syntax\IOtherwiseSyntax.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.g.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Version.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Appccelerate.AsyncModule.Net35\Appccelerate.AsyncModule.Net35.csproj">
+      <Project>{93CC35DA-78A9-498F-B6DF-512117469B27}</Project>
+      <Name>Appccelerate.AsyncModule.Net35</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Appccelerate.Fundamentals.Net35\Appccelerate.Fundamentals.Net35.csproj">
+      <Project>{FE7444F2-29E6-41BC-BF07-81B50924A12F}</Project>
+      <Name>Appccelerate.Fundamentals.Net35</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties ProjectLinkReference="a8b37574-7920-4796-8ead-67385ec206d9" ProjectLinkerExcludeFilter="\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
