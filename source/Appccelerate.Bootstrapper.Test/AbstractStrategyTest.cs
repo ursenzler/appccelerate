@@ -60,8 +60,8 @@ namespace Appccelerate.Bootstrapper
         {
             var syntax = this.testee.BuildRunSyntax();
 
-            syntax.Equals(this.runSyntaxBuilder.Object).Should().BeTrue();
-            this.testee.RunSyntaxBuilder.Equals(this.runSyntaxBuilder.Object).Should().BeTrue();
+            syntax.As<object>().Should().BeSameAs(this.runSyntaxBuilder.Object);
+            this.testee.RunSyntaxBuilder.As<object>().Should().BeSameAs(this.runSyntaxBuilder.Object);
         }
 
         [Fact]
@@ -77,8 +77,8 @@ namespace Appccelerate.Bootstrapper
         {
             var syntax = this.testee.BuildShutdownSyntax();
 
-            syntax.Equals(this.shutdownSyntaxBuilder.Object).Should().BeTrue();
-            this.testee.ShutdownSyntaxBuilder.Equals(this.shutdownSyntaxBuilder.Object).Should().BeTrue();
+            syntax.As<object>().Should().BeSameAs(this.shutdownSyntaxBuilder.Object);
+            this.testee.ShutdownSyntaxBuilder.As<object>().Should().BeSameAs(this.shutdownSyntaxBuilder.Object);
         }
 
         [Fact]

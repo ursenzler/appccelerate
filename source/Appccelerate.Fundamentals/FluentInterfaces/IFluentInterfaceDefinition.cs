@@ -21,7 +21,6 @@ namespace Appccelerate.FluentInterfaces
     using System;
     using System.ComponentModel;
 
-    [EditorBrowsable(EditorBrowsableState.Never)]
     public interface IFluentInterfaceDefinition
     {
         [EditorBrowsable(EditorBrowsableState.Never)]
