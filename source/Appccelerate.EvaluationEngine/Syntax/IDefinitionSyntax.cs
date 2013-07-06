@@ -23,6 +23,7 @@ namespace Appccelerate.EvaluationEngine.Syntax
     using System.Linq.Expressions;
 
     using Appccelerate.EvaluationEngine.Expressions;
+    using Appccelerate.FluentInterfaces;
 
     /// <summary>
     /// The syntax to define how a question can be answered.
@@ -46,7 +47,8 @@ namespace Appccelerate.EvaluationEngine.Syntax
     /// <typeparam name="TAnswer">The type of the answer.</typeparam>
     /// <typeparam name="TParameter">The type of the parameter.</typeparam>
     /// <typeparam name="TExpressionResult">The type of the expression result.</typeparam>
-    public interface IStrategySyntax<TQuestion, TAnswer, TParameter, TExpressionResult> where TQuestion : IQuestion<TAnswer, TParameter>
+    public interface IStrategySyntax<TQuestion, TAnswer, TParameter, TExpressionResult> : IFluentInterfaceDefinition
+        where TQuestion : IQuestion<TAnswer, TParameter>
     {
         /// <summary>
         /// Defines the strategy that is used to answer the question <typeparamref name="TQuestion"/>.
@@ -63,7 +65,8 @@ namespace Appccelerate.EvaluationEngine.Syntax
     /// <typeparam name="TAnswer">The type of the answer.</typeparam>
     /// <typeparam name="TParameter">The type of the parameter.</typeparam>
     /// <typeparam name="TExpressionResult">The type of the expression result.</typeparam>
-    public interface IAggregatorSyntax<TQuestion, TAnswer, TParameter, TExpressionResult> where TQuestion : IQuestion<TAnswer, TParameter>
+    public interface IAggregatorSyntax<TQuestion, TAnswer, TParameter, TExpressionResult> : IFluentInterfaceDefinition
+        where TQuestion : IQuestion<TAnswer, TParameter>
     {
         /// <summary>
         /// Defines the aggregator that is used to aggregate expressions defined for the question <typeparamref name="TQuestion"/>.
@@ -80,7 +83,7 @@ namespace Appccelerate.EvaluationEngine.Syntax
     /// <typeparam name="TAnswer">The type of the answer.</typeparam>
     /// <typeparam name="TParameter">The type of the parameter.</typeparam>
     /// <typeparam name="TExpressionResult">The type of the expression result.</typeparam>
-    public interface IConstraintSyntax<TQuestion, TAnswer, TParameter, TExpressionResult> 
+    public interface IConstraintSyntax<TQuestion, TAnswer, TParameter, TExpressionResult>
         : IExpressionSyntax<TQuestion, TAnswer, TParameter, TExpressionResult>
         where TQuestion : IQuestion<TAnswer, TParameter>
     {
@@ -99,7 +102,8 @@ namespace Appccelerate.EvaluationEngine.Syntax
     /// <typeparam name="TAnswer">The type of the answer.</typeparam>
     /// <typeparam name="TParameter">The type of the parameter.</typeparam>
     /// <typeparam name="TExpressionResult">The type of the expression result.</typeparam>
-    public interface IExpressionSyntax<TQuestion, TAnswer, TParameter, TExpressionResult> where TQuestion : IQuestion<TAnswer, TParameter>
+    public interface IExpressionSyntax<TQuestion, TAnswer, TParameter, TExpressionResult> : IFluentInterfaceDefinition
+        where TQuestion : IQuestion<TAnswer, TParameter>
     {
         /// <summary>
         /// Defines an expression that has to be evaluated to answer the question <typeparamref name="TQuestion"/>.

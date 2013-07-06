@@ -58,6 +58,10 @@
     <Compile Include="States.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Appccelerate.Fundamentals\Appccelerate.Fundamentals.csproj">
+      <Project>{f2d5c375-c650-4ded-a85e-8da8ec09927a}</Project>
+      <Name>Appccelerate.Fundamentals</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Appccelerate.StateMachine\Appccelerate.StateMachine.csproj">
       <Project>{A8B37574-7920-4796-8EAD-67385EC206D9}</Project>
       <Name>Appccelerate.StateMachine</Name>

@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Ensure.cs" />
     <Compile Include="Events\EventArgs{T}.cs" />
+    <Compile Include="FluentInterfaces\IFluentInterfaceDefinition.cs" />
     <Compile Include="Formatters\FormatHelper.cs" />
     <Compile Include="Formatters\StringTruncationFormatter.cs" />
     <Compile Include="Formatters\TypeExtensions.cs" />

@@ -19,13 +19,14 @@
 namespace Appccelerate.StateMachine.Syntax
 {
     using System;
+    using Appccelerate.FluentInterfaces;
 
     /// <summary>
     /// Defines the If syntax.
     /// </summary>
     /// <typeparam name="TState">The type of the state.</typeparam>
     /// <typeparam name="TEvent">The type of the event.</typeparam>
-    public interface IIfSyntax<TState, TEvent>
+    public interface IIfSyntax<TState, TEvent> : IFluentInterfaceDefinition
     {
         /// <summary>
         /// Defines the target state of the transition.

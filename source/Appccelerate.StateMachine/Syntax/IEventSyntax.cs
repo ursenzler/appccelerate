@@ -18,12 +18,14 @@
 
 namespace Appccelerate.StateMachine.Syntax
 {
+    using Appccelerate.FluentInterfaces;
+
     /// <summary>
     /// Defines the event syntax.
     /// </summary>
     /// <typeparam name="TState">The type of the state.</typeparam>
     /// <typeparam name="TEvent">The type of the event.</typeparam>
-    public interface IEventSyntax<TState, TEvent>
+    public interface IEventSyntax<TState, TEvent> : IFluentInterfaceDefinition
     {
         /// <summary>
         /// Defines an event that is accepted.

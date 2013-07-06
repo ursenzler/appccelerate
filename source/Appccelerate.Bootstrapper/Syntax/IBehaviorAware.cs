@@ -18,11 +18,13 @@
 
 namespace Appccelerate.Bootstrapper.Syntax
 {
+    using Appccelerate.FluentInterfaces;
+
     /// <summary>
     /// A behavior aware component is responsible for managing behaviors.
     /// </summary>
     /// <typeparam name="TExtension">The type of the extension.</typeparam>
-    public interface IBehaviorAware<out TExtension>
+    public interface IBehaviorAware<out TExtension> : IFluentInterfaceDefinition
         where TExtension : IExtension
     {
         /// <summary>

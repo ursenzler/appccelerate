@@ -1,5 +1,5 @@
 ﻿//-------------------------------------------------------------------------------
-// <copyright file="IHierarchySyntax.cs" company="Appccelerate">
+// <copyright file="IFluentInterfaceDefinition.cs" company="Appccelerate">
 //   Copyright (c) 2008-2013
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,22 +16,24 @@
 // </copyright>
 //-------------------------------------------------------------------------------
 
-namespace Appccelerate.StateMachine.Syntax
+namespace Appccelerate.FluentInterfaces
 {
-    using Appccelerate.FluentInterfaces;
+    using System;
+    using System.ComponentModel;
 
-    public interface IHierarchySyntax<TState> : IFluentInterfaceDefinition
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public interface IFluentInterfaceDefinition
     {
-        IInitialSubStateSyntax<TState> WithHistoryType(HistoryType historyType);
-    }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        Type GetType();
 
-    public interface IInitialSubStateSyntax<TState> : IFluentInterfaceDefinition
-    {
-        ISubStateSyntax<TState> WithInitialSubState(TState stateId);
-    }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        int GetHashCode();
 
-    public interface ISubStateSyntax<TState> : IFluentInterfaceDefinition
-    {
-        ISubStateSyntax<TState> WithSubState(TState stateId); 
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        string ToString();
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        bool Equals(object other);
     }
 }

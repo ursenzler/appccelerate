@@ -21,12 +21,13 @@ namespace Appccelerate.Bootstrapper.Syntax
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
+    using Appccelerate.FluentInterfaces;
 
     /// <summary>
     /// Generic syntax which operates on extensions.
     /// </summary>
     /// <typeparam name="TExtension">The type of the extension.</typeparam>
-    public interface ISyntax<TExtension> : IEnumerable<IExecutable<TExtension>>
+    public interface ISyntax<TExtension> : IEnumerable<IExecutable<TExtension>>, IFluentInterfaceDefinition
         where TExtension : IExtension
     {
     }
@@ -51,7 +52,7 @@ namespace Appccelerate.Bootstrapper.Syntax
     /// End syntax which allows to define behavior which is executed at the end.
     /// </summary>
     /// <typeparam name="TExtension">The type of the extension.</typeparam>
-    public interface IEndSyntax<TExtension>
+    public interface IEndSyntax<TExtension> : IFluentInterfaceDefinition
         where TExtension : IExtension
     {
         /// <summary>
@@ -164,7 +165,7 @@ namespace Appccelerate.Bootstrapper.Syntax
     /// Terminal fluent definition syntax interface for behaviors.
     /// </summary>
     /// <typeparam name="TExtension">The type of the extension.</typeparam>
-    public interface IEndWithBehavior<TExtension>
+    public interface IEndWithBehavior<TExtension> : IFluentInterfaceDefinition
         where TExtension : IExtension
     {
         /// <summary>
