@@ -76,9 +76,9 @@ namespace Appccelerate.Formatters
             }
             catch (FormatException)
             {
-                string result = "!!! FORMAT ERROR !!!! " + format + ": ";
+                var result = "!!! FORMAT ERROR !!!! " + format + ": ";
 
-                return args.Aggregate(result, (current, arg) => current + (arg + ", "));
+                return args.Aggregate(result, (current, argument) => current + (argument + ", "));
             }
         }
 
@@ -90,22 +90,25 @@ namespace Appccelerate.Formatters
         /// <returns>String representation of the collection.</returns>
         public static string ConvertToString(IEnumerable collection, string separator)
         {
-            Ensure.ArgumentNotNull(separator, "seperator");
+            Ensure.ArgumentNotNull(separator, "separator");
+
+            if (collection == null)
+            {
+                return string.Empty;
+            }
 
             StringBuilder sb = new StringBuilder();
-            if (collection != null)
-            {
-                foreach (object o in collection)
-                {
-                    sb.Append(o);
-                    sb.Append(separator);
-                }
 
-                // cut away last separator
-                if (sb.Length > 0)
-                {
-                    sb.Length -= separator.Length;
-                }
+            foreach (var o in collection)
+            {
+                sb.Append(o);
+                sb.Append(separator);
+            }
+
+            // cut away last separator
+            if (sb.Length > 0)
+            {
+                sb.Length -= separator.Length;
             }
 
             return sb.ToString();
@@ -119,21 +122,24 @@ namespace Appccelerate.Formatters
         /// <returns>String representation of the dictionary</returns>
         public static string ConvertToString(IDictionary<object, object> dictionary, string separator)
         {
-            Ensure.ArgumentNotNull(separator, "seperator");
+            Ensure.ArgumentNotNull(separator, "separator");
+            
+            if (dictionary == null)
+            {
+                return string.Empty;
+            }
 
             StringBuilder sb = new StringBuilder();
-            if (dictionary != null)
-            {
-                foreach (KeyValuePair<object, object> valuePair in dictionary)
-                {
-                    sb.AppendFormat(CultureInfo.InvariantCulture, "{0}={1}{2}", valuePair.Key, valuePair.Value, separator);
-                }
 
-                // cut away last separator
-                if (sb.Length > 0)
-                {
-                    sb.Length -= separator.Length;
-                }
+            foreach (var valuePair in dictionary)
+            {
+                sb.AppendFormat(CultureInfo.InvariantCulture, "{0}={1}{2}", valuePair.Key, valuePair.Value, separator);
+            }
+
+            // cut away last separator
+            if (sb.Length > 0)
+            {
+                sb.Length -= separator.Length;
             }
 
             return sb.ToString();

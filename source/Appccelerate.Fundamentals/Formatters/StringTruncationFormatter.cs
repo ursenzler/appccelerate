@@ -43,25 +43,25 @@ namespace Appccelerate.Formatters
         /// After String.Format gets the ICustomFormatter, it calls this format method on each argument.
         /// </summary>
         /// <param name="format">The format string.</param>
-        /// <param name="arg">The arguments for the format string.</param>
+        /// <param name="argument">The arguments for the format string.</param>
         /// <param name="formatProvider">The formatProvider.</param>
         /// <returns>Formatted string.</returns>
-        public virtual string Format(string format, object arg, IFormatProvider formatProvider)
+        public string Format(string format, object argument, IFormatProvider formatProvider)
         {
             if (format == null || !format.StartsWith("L", StringComparison.Ordinal))
             {
-                return string.Format(CultureInfo.InvariantCulture, "{0}", arg);
+                return string.Format(CultureInfo.InvariantCulture, "{0}", argument);
             }
 
             string s;
-            var formattable = arg as IFormattable;
+            var formattable = argument as IFormattable;
             if (formattable != null)
             {
                 s = formattable.ToString(format, formatProvider);
             }
-            else if (arg != null)
+            else if (argument != null)
             {
-                s = arg.ToString();
+                s = argument.ToString();
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Appccelerate.Formatters
 
             // Uses the format string to
             // form the output string.
-            int length = Convert.ToInt32(format.Substring(1), formatProvider);
+            var length = Convert.ToInt32(format.Substring(1), formatProvider);
             if (s.Length > length)
             {
                 s = s.Substring(0, length);
