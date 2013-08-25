@@ -22,6 +22,8 @@ namespace Appccelerate.StateMachine
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
+
+    using Appccelerate.Formatters;
     using Appccelerate.StateMachine.Machine;
     using Appccelerate.StateMachine.Machine.Events;
     using Appccelerate.StateMachine.Persistence;
@@ -71,7 +73,9 @@ namespace Appccelerate.StateMachine
         /// <param name="factory">The factory uses to build up internals. Pass your own factory to change the behavior of the state machine.</param>
         public ActiveStateMachine(string name, IFactory<TState, TEvent> factory)
         {
-            this.stateMachine = new StateMachine<TState, TEvent>(name, factory);
+            this.stateMachine = new StateMachine<TState, TEvent>(
+                name ?? this.GetType().FullNameToString(), 
+                factory);
 
             this.queue = new LinkedList<EventInformation<TEvent>>();
         }
