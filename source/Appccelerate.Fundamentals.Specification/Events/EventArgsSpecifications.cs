@@ -16,7 +16,7 @@
 // </copyright>
 //-------------------------------------------------------------------------------
 
-namespace Appccelerate.Fundamentals.Specification.Events
+namespace Appccelerate.Fundamentals.Events
 {
     using System;
 
@@ -26,6 +26,7 @@ namespace Appccelerate.Fundamentals.Specification.Events
 
     using Machine.Specifications;
 
+    [Subject("Generic Event Arguments")]
     public class When_firing_generic_event_args
     {
         const int Value = 42;
