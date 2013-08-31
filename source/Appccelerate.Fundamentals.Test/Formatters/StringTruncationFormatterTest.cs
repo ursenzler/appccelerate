@@ -79,10 +79,11 @@ namespace Appccelerate.Formatters
         public void NullValue()
         {
             Assert.Throws<ArgumentNullException>(
+                // ReSharper disable once AssignNullToNotNullAttribute because we want to test this
                 () => string.Format(new StringTruncationFormatter(), "{0:L10}", null));
         }
 
-        public class TestClassNotFormattable
+        private class TestClassNotFormattable
         {
             public override string ToString()
             {
@@ -90,7 +91,7 @@ namespace Appccelerate.Formatters
             }
         }
 
-        public class TestClassFormattable : IFormattable
+        private class TestClassFormattable : IFormattable
         {
             public string ToString(string format, IFormatProvider formatProvider)
             {

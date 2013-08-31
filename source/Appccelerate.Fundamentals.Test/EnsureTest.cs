@@ -172,7 +172,7 @@ namespace Appccelerate
         }
 
         [Fact]
-        public void ArgumentAssignableFrom_WhenArgumentAsssignable_MustNotThrow()
+        public void ArgumentAssignableFrom_WhenArgumentAssignable_MustNotThrow()
         {
             Assert.DoesNotThrow(() => Ensure.ArgumentAssignableFrom(typeof(IInterface), new ImplementedClass(), "argument"));
             Assert.DoesNotThrow(() => Ensure.ArgumentAssignableFrom(typeof(IInterface), new InheritedClass(), "argument"));
@@ -217,7 +217,7 @@ namespace Appccelerate
         }
 
         [Fact]
-        public void ArgumentTypeAssignableFrom_WhenTypeIsNotAsssignable_MustThrow()
+        public void ArgumentTypeAssignableFrom_WhenTypeIsNotAssignable_MustThrow()
         {
             var ex1 = Assert.Throws<ArgumentException>(() => Ensure.ArgumentTypeAssignableFrom(typeof(IInterface), typeof(NotImplementedClass), "argument"));
             ex1.ParamName.Should().Be("argument");
@@ -236,7 +236,7 @@ namespace Appccelerate
         }
 
         [Fact]
-        public void ArgumentTypeAssignableFrom_WhenTypeIsAsssignable_MustNotThrows()
+        public void ArgumentTypeAssignableFrom_WhenTypeIsAssignable_MustNotThrows()
         {
             Assert.DoesNotThrow(() => Ensure.ArgumentTypeAssignableFrom(typeof(IInterface), typeof(ImplementedClass), "argument"));
             Assert.DoesNotThrow(() => Ensure.ArgumentTypeAssignableFrom(typeof(IInterface), typeof(IInheritedInterface), "argument"));
@@ -337,7 +337,7 @@ namespace Appccelerate
         public void ArgumentInRange_MustThrowWithProvidedMessage()
         {
             var ex = Assert.Throws<ArgumentOutOfRangeException>(() => Ensure.ArgumentInRange(false, "value", "argument", "message"));
-            ex.Message.StartsWith("message").Should().BeTrue();
+            ex.Message.StartsWith("message", StringComparison.Ordinal).Should().BeTrue();
         }
 
         [Fact]
@@ -358,10 +358,10 @@ namespace Appccelerate
         public void ArgumentInRange_MustFormatMessageUsingParameters()
         {
             var ex = Assert.Throws<ArgumentOutOfRangeException>(() => Ensure.ArgumentInRange(false, "value", "argument", "{0}"));
-            ex.Message.StartsWith("value").Should().BeTrue();
+            ex.Message.StartsWith("value", StringComparison.Ordinal).Should().BeTrue();
 
             ex = Assert.Throws<ArgumentOutOfRangeException>(() => Ensure.ArgumentInRange(false, "value", "argument", "{1}"));
-            ex.Message.StartsWith("argument").Should().BeTrue();
+            ex.Message.StartsWith("argument", StringComparison.Ordinal).Should().BeTrue();
         }
 
         [Fact]
@@ -426,7 +426,7 @@ namespace Appccelerate
         public void ArgumentMatches_MustThrowWithProvidedMessage()
         {
             var ex = Assert.Throws<ArgumentException>(() => Ensure.ArgumentMatches(false, "value", "argument", "message"));
-            ex.Message.StartsWith("message").Should().BeTrue();
+            ex.Message.StartsWith("message", StringComparison.Ordinal).Should().BeTrue();
         }
 
         [Fact]
@@ -440,10 +440,10 @@ namespace Appccelerate
         public void ArgumentMatches_MustFormatMessageUsingParameters()
         {
             var ex = Assert.Throws<ArgumentException>(() => Ensure.ArgumentMatches(false, "value", "argument", "{0}"));
-            ex.Message.StartsWith("value").Should().BeTrue();
+            ex.Message.StartsWith("value", StringComparison.Ordinal).Should().BeTrue();
 
             ex = Assert.Throws<ArgumentException>(() => Ensure.ArgumentMatches(false, "value", "argument", "{1}"));
-            ex.Message.StartsWith("argument").Should().BeTrue();
+            ex.Message.StartsWith("argument", StringComparison.Ordinal).Should().BeTrue();
         }
 
         [Fact]
@@ -469,7 +469,7 @@ namespace Appccelerate
         public void ArgumentMatchesWithoutParameter_MustThrowWithProvidedMessage()
         {
             var ex = Assert.Throws<ArgumentException>(() => Ensure.ArgumentMatches(false, "message"));
-            ex.Message.StartsWith("message").Should().BeTrue();
+            ex.Message.StartsWith("message", StringComparison.Ordinal).Should().BeTrue();
         }
 
         [Fact]
@@ -519,7 +519,7 @@ namespace Appccelerate
         }
 
         [Fact]
-        public void OperationNotValid_MustThrowAllways()
+        public void OperationNotValid_MustThrowAlways()
         {
             Assert.Throws<InvalidOperationException>(() => Ensure.OperationNotValid("message"));
         }
@@ -591,7 +591,7 @@ namespace Appccelerate
         }
 
         [Fact]
-        public void OperationNotSupported_MustThrowAllways()
+        public void OperationNotSupported_MustThrowAlways()
         {
             Assert.Throws<NotSupportedException>(() => Ensure.OperationNotSupported("message"));
         }
