@@ -119,11 +119,13 @@ namespace Appccelerate.StateMachine.Machine.Transitions
         /// <param name="eventId">The event id.</param>
         private void MakeSureEventExistsInTransitionList(TEvent eventId)
         {
-            if (!this.transitions.ContainsKey(eventId))
+            if (this.transitions.ContainsKey(eventId))
             {
-                var list = new List<ITransition<TState, TEvent>>();
-                this.transitions.Add(eventId, list);
+                return;
             }
+
+            var list = new List<ITransition<TState, TEvent>>();
+            this.transitions.Add(eventId, list);
         }
 
         /// <summary>

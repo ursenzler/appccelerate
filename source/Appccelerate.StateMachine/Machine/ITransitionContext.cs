@@ -19,7 +19,6 @@
 namespace Appccelerate.StateMachine.Machine
 {
     using System;
-    using System.Collections.ObjectModel;
 
     /// <summary>
     /// Provides information about the current transition.
@@ -34,8 +33,6 @@ namespace Appccelerate.StateMachine.Machine
         Missable<TEvent> EventId { get; }
 
         object EventArgument { get; }
-
-        ReadOnlyCollection<Exception> Exceptions { get; }
 
         void AddRecord(TState stateId, RecordType recordType);
 

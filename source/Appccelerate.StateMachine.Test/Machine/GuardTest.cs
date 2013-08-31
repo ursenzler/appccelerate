@@ -27,18 +27,21 @@ namespace Appccelerate.StateMachine.Machine
     /// </summary>
     public class GuardTest
     {
+        private const string EventArgument = "test";
+
         private readonly StateMachine<StateMachine.States, StateMachine.Events> testee;
 
         public GuardTest()
         {
             this.testee = new StateMachine<StateMachine.States, StateMachine.Events>();
+
+            this.testee.Initialize(StateMachine.States.A);
+            this.testee.EnterInitialState();
         }
 
         [Fact]
         public void EventArgumentIsPassedToTheGuard()
         {
-            const string OriginalEventArgument = "test";
-
             string eventArgument = null;
 
             this.testee.In(StateMachine.States.A)
@@ -50,12 +53,9 @@ namespace Appccelerate.StateMachine.Machine
                         })
                     .Goto(StateMachine.States.B);
 
-            this.testee.Initialize(StateMachine.States.A);
-            this.testee.EnterInitialState();
+            this.testee.Fire(StateMachine.Events.A, EventArgument);
 
-            this.testee.Fire(StateMachine.Events.A, OriginalEventArgument);
-
-            eventArgument.Should().Be(OriginalEventArgument);
+            eventArgument.Should().Be(EventArgument);
         }
 
         [Fact]
@@ -66,8 +66,6 @@ namespace Appccelerate.StateMachine.Machine
                     .If(() => false).Goto(StateMachine.States.C)
                     .If(() => true).Goto(StateMachine.States.B);
 
-            this.testee.Initialize(StateMachine.States.A);
-            this.testee.EnterInitialState();
             this.testee.Fire(StateMachine.Events.B);
 
             Assert.Equal(StateMachine.States.B, this.testee.CurrentStateId);
@@ -83,8 +81,6 @@ namespace Appccelerate.StateMachine.Machine
                     .If(() => false).Goto(StateMachine.States.E)
                     .If<int>(SingleIntArgumentGuardReturningTrue).Goto(StateMachine.States.B);
 
-            this.testee.Initialize(StateMachine.States.A);
-            this.testee.EnterInitialState();
             this.testee.Fire(StateMachine.Events.B, 3);
 
             Assert.Equal(StateMachine.States.B, this.testee.CurrentStateId);

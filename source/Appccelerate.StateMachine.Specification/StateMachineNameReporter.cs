@@ -1,5 +1,5 @@
-//-------------------------------------------------------------------------------
-// <copyright file="Concern.cs" company="Appccelerate">
+﻿//-------------------------------------------------------------------------------
+// <copyright file="StateMachineNameReporter.cs" company="Appccelerate">
 //   Copyright (c) 2008-2013
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,20 +18,17 @@
 
 namespace Appccelerate.StateMachine
 {
-    public static class Concern
+    using System.Collections.Generic;
+
+    using Appccelerate.StateMachine.Machine;
+
+    public class StateMachineNameReporter : IStateMachineReport<string, int>
     {
-        public const string FireEvent = "Fire events";
+        public string StateMachineName { get; private set; }
 
-        public const string Initialization = "Initialize state machine";
-
-        public const string StartStop = "Start and stop state machine";
-
-        public const string Transition = "Execute transition";
-
-        public const string EntryAndExitActions = "Entry and exit actions";
-
-        public const string ExceptionHandling = "Exception Handling";
-        
-        public const string Persistence = "Persistence";
+        public void Report(string name, IEnumerable<IState<string, int>> states, Initializable<string> initialStateId)
+        {
+            this.StateMachineName = name;    
+        }
     }
 }

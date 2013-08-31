@@ -34,7 +34,7 @@ namespace Appccelerate.StateMachine.Machine.ActionHolders
 
         public void Execute(object argument)
         {
-            T castedArgument = default(T);
+            T castArgument = default(T);
 
             if (argument != Missing.Value && !(argument is T))
             {
@@ -43,10 +43,10 @@ namespace Appccelerate.StateMachine.Machine.ActionHolders
 
             if (argument != Missing.Value)
             {
-                castedArgument = (T)argument;
+                castArgument = (T)argument;
             }
 
-            this.action(castedArgument);
+            this.action(castArgument);
         }
 
         public string Describe()

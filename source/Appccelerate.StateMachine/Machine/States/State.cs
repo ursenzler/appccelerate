@@ -437,6 +437,7 @@ namespace Appccelerate.StateMachine.Machine.States
         /// Throws an exception if the new super state is this instance.
         /// </summary>
         /// <param name="newSuperState">The value.</param>
+        // ReSharper disable once UnusedParameter.Local
         private void CheckSuperStateIsNotThisInstance(IState<TState, TEvent> newSuperState)
         {
             if (this == newSuperState)
@@ -449,6 +450,7 @@ namespace Appccelerate.StateMachine.Machine.States
         /// Throws an exception if the new initial state is this instance.
         /// </summary>
         /// <param name="newInitialState">The value.</param>
+        // ReSharper disable once UnusedParameter.Local
         private void CheckInitialStateIsNotThisInstance(IState<TState, TEvent> newInitialState)
         {
             if (this == newInitialState)

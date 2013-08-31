@@ -32,7 +32,9 @@ namespace Appccelerate.StateMachine.Machine
     /// </summary>
     /// <typeparam name="TState">The type of the state.</typeparam>
     /// <typeparam name="TEvent">The type of the event.</typeparam>
+    // ReSharper disable ClassWithVirtualMembersNeverInherited.Global
     public class StandardFactory<TState, TEvent> : IFactory<TState, TEvent>
+    // ReSharper restore ClassWithVirtualMembersNeverInherited.Global
         where TState : IComparable
         where TEvent : IComparable
     {

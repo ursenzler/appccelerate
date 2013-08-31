@@ -31,7 +31,7 @@ namespace Appccelerate.StateMachine
     [Subject(Concern.Persistence)]
     public class When_resetting_a_state_machine_from_persisted_data
     {
-        static PassiveStateMachine<State, Event> machine;
+        static IStateMachine<State, Event> machine;
         static PassiveStateMachine<State, Event> loadedMachine;
         static StateMachineSaver<State> saver;
         static StateMachineLoader<State> loader;

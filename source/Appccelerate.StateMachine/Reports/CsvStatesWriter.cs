@@ -25,7 +25,6 @@ namespace Appccelerate.StateMachine.Reports
 
     using Appccelerate.Formatters;
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.States;
 
     /// <summary>
     /// Writes the states of a state machine to a stream as csv.
@@ -53,6 +52,8 @@ namespace Appccelerate.StateMachine.Reports
         /// <param name="states">The states.</param>
         public void Write(IEnumerable<IState<TState, TEvent>> states)
         {
+            states = states.ToList();
+
             Ensure.ArgumentNotNull(states, "states");
 
             this.WriteStatesHeader();

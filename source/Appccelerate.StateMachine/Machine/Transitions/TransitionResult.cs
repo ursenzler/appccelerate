@@ -19,36 +19,18 @@
 namespace Appccelerate.StateMachine.Machine.Transitions
 {
     using System;
-    using System.Collections.Generic;
 
-    using Appccelerate.StateMachine.Machine.States;
-
-    /// <summary>
-    /// Represents the result of a transition.
-    /// </summary>
-    /// <typeparam name="TState">The type of the state.</typeparam>
-    /// <typeparam name="TEvent">The type of the event.</typeparam>
     public class TransitionResult<TState, TEvent>
         : ITransitionResult<TState, TEvent>
         where TState : IComparable
         where TEvent : IComparable
     {
-        /// <summary>
-        /// This value represents that no transition was fired.
-        /// </summary>
-        public static readonly ITransitionResult<TState, TEvent> NotFired = new TransitionResult<TState, TEvent>(false, null, null);
+        public static readonly ITransitionResult<TState, TEvent> NotFired = new TransitionResult<TState, TEvent>(false, null);
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TransitionResult{TState,TEvent}"/> class.
-        /// </summary>
-        /// <param name="fired">if set to <c>true</c> [fired].</param>
-        /// <param name="newState">The new state.</param>
-        /// <param name="exceptions">The exceptions.</param>
-        public TransitionResult(bool fired, IState<TState, TEvent> newState, ICollection<Exception> exceptions)
+        public TransitionResult(bool fired, IState<TState, TEvent> newState)
         {
             this.Fired = fired;
             this.NewState = newState;
-            this.Exceptions = exceptions;
         }
 
         /// <summary>
@@ -62,11 +44,5 @@ namespace Appccelerate.StateMachine.Machine.Transitions
         /// </summary>
         /// <value>The new state.</value>
         public IState<TState, TEvent> NewState { get; private set; }
-
-        /// <summary>
-        /// Gets all exceptions that occurred during executing the transition.
-        /// </summary>
-        /// <value>The exceptions.</value>
-        public ICollection<Exception> Exceptions { get; private set; }
     }
 }

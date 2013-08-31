@@ -26,7 +26,6 @@ namespace Appccelerate.StateMachine.Reports
     using System.Xml.Linq;
 
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.States;
     using Appccelerate.StateMachine.Machine.Transitions;
 
     /// <summary>
@@ -38,12 +37,13 @@ namespace Appccelerate.StateMachine.Reports
         where TState : IComparable
         where TEvent : IComparable
     {
+        // ReSharper disable StaticFieldInGenericType
         private static readonly XNamespace N = "http://graphml.graphdrawing.org/xmlns";
         private static readonly XNamespace Xsi = "http://www.w3.org/2001/XMLSchema-instance";
         private static readonly XNamespace Y = "http://www.yworks.com/xml/graphml";
         private static readonly XNamespace YEd = "http://www.yworks.com/xml/yed/3";
         private static readonly XNamespace SchemaLocation = "http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd";
-
+        // ReSharper restore StaticFieldInGenericType
         private readonly TextWriter textWriter;
 
         private int edgeId;
@@ -64,14 +64,14 @@ namespace Appccelerate.StateMachine.Reports
         /// </summary>
         /// <param name="name">The name of the state machine.</param>
         /// <param name="states">The states.</param>
-        /// <param name="initialStateId">The initial state id.</param>
-        public void Report(string name, IEnumerable<IState<TState, TEvent>> states, Initializable<TState> initialStateId)
+        /// <param name="initialState">The initial state id.</param>
+        public void Report(string name, IEnumerable<IState<TState, TEvent>> states, Initializable<TState> initialState)
         {
             var statesList = states.ToList();
 
             this.edgeId = 0;
 
-            this.initialStateId = initialStateId;
+            this.initialStateId = initialState;
             Ensure.ArgumentNotNull(statesList, "states");
 
             XElement graph = CreateGraph();

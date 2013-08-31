@@ -39,7 +39,6 @@
     <Compile Include="Machine\ActionHolders\IActionHolder.cs" />
     <Compile Include="Machine\Contexts\TransitionContext.cs" />
     <Compile Include="Machine\Events\ContextEventArgs.cs" />
-    <Compile Include="Machine\Events\ExceptionEventArgs.cs" />
     <Compile Include="Machine\Events\IFactory.cs" />
     <Compile Include="Machine\Events\TransitionCompletedEventArgs.cs" />
     <Compile Include="Machine\Events\TransitionEventArgs.cs" />

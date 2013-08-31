@@ -21,9 +21,9 @@ namespace Appccelerate.StateMachine.Reports
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
 
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.States;
 
     /// <summary>
     /// Generator for csv reports of states and transitions of a state machine.
@@ -57,6 +57,8 @@ namespace Appccelerate.StateMachine.Reports
         /// <param name="initialStateId">The initial state id.</param>
         public void Report(string name, IEnumerable<IState<TState, TEvent>> states, Initializable<TState> initialStateId)
         {
+            states = states.ToList();
+
             this.ReportStates(states);
             this.ReportTransitions(states);
         }

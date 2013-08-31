@@ -18,17 +18,17 @@
 
 namespace Appccelerate.StateMachine.Syntax
 {
-    public interface IHierarchySyntax<TState>
+    public interface IHierarchySyntax<in TState>
     {
         IInitialSubStateSyntax<TState> WithHistoryType(HistoryType historyType);
     }
 
-    public interface IInitialSubStateSyntax<TState>
+    public interface IInitialSubStateSyntax<in TState>
     {
         ISubStateSyntax<TState> WithInitialSubState(TState stateId);
     }
 
-    public interface ISubStateSyntax<TState>
+    public interface ISubStateSyntax<in TState>
     {
         ISubStateSyntax<TState> WithSubState(TState stateId); 
     }

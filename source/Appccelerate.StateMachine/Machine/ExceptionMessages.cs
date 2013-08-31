@@ -21,8 +21,6 @@ namespace Appccelerate.StateMachine.Machine
     using System;
     using System.Globalization;
     
-    using Appccelerate.Formatters;
-
     /// <summary>
     /// Holds all exception messages
     /// </summary>
@@ -109,83 +107,6 @@ namespace Appccelerate.StateMachine.Machine
                         transition,
                         state,
                         transition.Source);
-        }
-
-        /// <summary>
-        /// Transition declined.
-        /// </summary>
-        /// <typeparam name="TState">The type of the state.</typeparam>
-        /// <typeparam name="TEvent">The type of the event.</typeparam>
-        /// <param name="stateId">The state id.</param>
-        /// <param name="eventId">The event id.</param>
-        /// <returns>error message</returns>
-        public static string TransitionDeclined<TState, TEvent>(TState stateId, TEvent eventId)
-        {
-            return string.Format(
-                    CultureInfo.InvariantCulture,
-                    "Transition declined: state = {0} event = {1}",
-                    stateId,
-                    eventId);
-        }
-
-        /// <summary>
-        /// Cannot pass multiple arguments to single argument action.
-        /// </summary>
-        /// <param name="arguments">The arguments.</param>
-        /// <param name="action">The action.</param>
-        /// <returns>error message</returns>
-        public static string CannotPassMultipleArgumentsToSingleArgumentAction(object[] arguments, string action)
-        {
-            return string.Format(
-                CultureInfo.InvariantCulture,
-                "Cannot pass multiple or no arguments to a single argument action. Arguments = {0}, Action = {1}",
-                FormatHelper.ConvertToString(arguments, ", "),
-                action);
-        }
-
-        /// <summary>
-        /// Cannot cast argument to action argument.
-        /// </summary>
-        /// <param name="argument">The argument.</param>
-        /// <param name="action">The action.</param>
-        /// <returns>error message</returns>
-        public static string CannotCastArgumentToActionArgument(object argument, string action)
-        {
-            return string.Format(
-                CultureInfo.InvariantCulture,
-                "Cannot cast argument to match action method. Argument = {0}, Action = {1}",
-                argument,
-                action);
-        }
-
-        /// <summary>
-        /// Cannot pass multiple arguments to single argument guard.
-        /// </summary>
-        /// <param name="arguments">The arguments.</param>
-        /// <param name="guard">The guard.</param>
-        /// <returns>error message</returns>
-        public static string CannotPassMultipleArgumentsToSingleArgumentGuard(object[] arguments, string guard)
-        {
-            return string.Format(
-                CultureInfo.InvariantCulture,
-                "Cannot pass multiple or no arguments to a single argument guard. Arguments = {0}, Guard = {1}",
-                FormatHelper.ConvertToString(arguments, ", "),
-                guard);
-        }
-
-        /// <summary>
-        /// Cannot cast argument to guard argument.
-        /// </summary>
-        /// <param name="argument">The argument.</param>
-        /// <param name="guard">The guard.</param>
-        /// <returns>error message</returns>
-        public static string CannotCastArgumentToGuardArgument(object argument, string guard)
-        {
-            return string.Format(
-                CultureInfo.InvariantCulture,
-                "Cannot cast argument to match guard method. Argument = {0}, Guard = {1}",
-                argument,
-                guard);
         }
     }
 }

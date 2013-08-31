@@ -21,6 +21,7 @@ namespace Appccelerate.StateMachine
     using System;
     using System.Collections.Generic;
 
+    using Appccelerate.Formatters;
     using Appccelerate.StateMachine.Machine;
     using Appccelerate.StateMachine.Machine.Events;
     using Appccelerate.StateMachine.Persistence;
@@ -82,7 +83,9 @@ namespace Appccelerate.StateMachine
         /// <param name="factory">The factory.</param>
         public PassiveStateMachine(string name, IFactory<TState, TEvent> factory)
         {
-            this.stateMachine = new StateMachine<TState, TEvent>(name, factory);
+            this.stateMachine = new StateMachine<TState, TEvent>(
+                name ?? this.GetType().FullNameToString(), 
+                factory);
             this.events = new LinkedList<EventInformation<TEvent>>();
         }
 
@@ -342,12 +345,14 @@ namespace Appccelerate.StateMachine
 
         private void InitializeStateMachineIfInitializationIsPending()
         {
-            if (this.pendingInitialization)
+            if (!this.pendingInitialization)
             {
-                this.stateMachine.EnterInitialState();
-
-                this.pendingInitialization = false;
+                return;
             }
+
+            this.stateMachine.EnterInitialState();
+
+            this.pendingInitialization = false;
         }
 
         /// <summary>

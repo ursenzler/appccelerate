@@ -22,7 +22,6 @@ namespace Appccelerate.StateMachine.Machine
     using System.Collections.Generic;
 
     using Appccelerate.StateMachine.Machine.Events;
-    using Appccelerate.StateMachine.Machine.States;
 
     /// <summary>
     /// Dictionary mapping state ids to states.

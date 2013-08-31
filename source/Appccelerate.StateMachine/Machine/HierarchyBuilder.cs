@@ -31,7 +31,7 @@ namespace Appccelerate.StateMachine.Machine
     {
         private readonly IStateDictionary<TState, TEvent> states;
 
-        private IState<TState, TEvent> superState;
+        private readonly IState<TState, TEvent> superState;
 
         public HierarchyBuilder(IStateDictionary<TState, TEvent> states, TState superStateId)
         {

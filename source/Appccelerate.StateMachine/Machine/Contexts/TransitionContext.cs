@@ -20,7 +20,6 @@ namespace Appccelerate.StateMachine.Machine.Contexts
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Diagnostics;
     using System.Text;
 
@@ -37,7 +36,6 @@ namespace Appccelerate.StateMachine.Machine.Contexts
         private readonly IState<TState, TEvent> state;
         private readonly Missable<TEvent> eventId;
         private readonly object eventArgument;
-        private readonly IList<Exception> exceptions;
         private readonly List<Record> records;
 
         public TransitionContext(IState<TState, TEvent> state, Missable<TEvent> eventId, object eventArgument, INotifier<TState, TEvent> notifier)
@@ -47,7 +45,6 @@ namespace Appccelerate.StateMachine.Machine.Contexts
             this.eventArgument = eventArgument;
             this.Notifier = notifier;
 
-            this.exceptions = new List<Exception>();
             this.records = new List<Record>();
         }
 
@@ -66,19 +63,13 @@ namespace Appccelerate.StateMachine.Machine.Contexts
             get { return this.eventArgument; }
         }
 
-        public ReadOnlyCollection<Exception> Exceptions
+        private INotifier<TState, TEvent> Notifier
         {
-            get { return new ReadOnlyCollection<Exception>(this.exceptions); }
-        }
-
-        protected INotifier<TState, TEvent> Notifier
-        {
-            get; private set;
+            get; set;
         }
 
         public void OnExceptionThrown(Exception exception)
         {
-            this.AddException(exception);
             this.Notifier.OnExceptionThrown(this, exception);
         }
 
@@ -92,18 +83,13 @@ namespace Appccelerate.StateMachine.Machine.Contexts
             this.records.Add(new Record(stateId, recordType));
         }
 
-        public virtual string GetRecords()
+        public string GetRecords()
         {
             StringBuilder result = new StringBuilder();
 
             this.records.ForEach(record => result.AppendFormat(" -> {0}", record));
 
             return result.ToString();
-        }
-
-        protected void AddException(Exception exception)
-        {
-            this.exceptions.Add(exception);
         }
 
         private class Record
@@ -114,9 +100,9 @@ namespace Appccelerate.StateMachine.Machine.Contexts
                 this.RecordType = recordType;
             }
 
-            public TState StateId { get; private set; }
+            private TState StateId { get; set; }
 
-            public RecordType RecordType { get; private set; }
+            private RecordType RecordType { get; set; }
 
             public override string ToString()
             {

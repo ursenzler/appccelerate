@@ -25,7 +25,6 @@ namespace Appccelerate.StateMachine.Reports
 
     using Appccelerate.Formatters;
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.States;
     using Appccelerate.StateMachine.Machine.Transitions;
 
     /// <summary>
@@ -54,6 +53,8 @@ namespace Appccelerate.StateMachine.Reports
         /// <param name="states">The states.</param>
         public void Write(IEnumerable<IState<TState, TEvent>> states)
         {
+            states = states.ToList();
+
             Ensure.ArgumentNotNull(states, "states");
 
             this.WriteTransitionsHeader();

@@ -23,7 +23,6 @@ namespace Appccelerate.StateMachine.Machine.Transitions
 
     using Appccelerate.StateMachine.Machine.ActionHolders;
     using Appccelerate.StateMachine.Machine.GuardHolders;
-    using Appccelerate.StateMachine.Machine.States;
 
     /// <summary>
     /// Describes a transition.

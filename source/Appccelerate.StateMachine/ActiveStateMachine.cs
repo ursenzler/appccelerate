@@ -367,12 +367,14 @@ namespace Appccelerate.StateMachine
 
         private void InitializeStateMachineIfInitializationIsPending()
         {
-            if (this.pendingInitialization)
+            if (!this.pendingInitialization)
             {
-                this.stateMachine.EnterInitialState();
-
-                this.pendingInitialization = false;
+                return;
             }
+
+            this.stateMachine.EnterInitialState();
+
+            this.pendingInitialization = false;
         }
 
         private void CheckThatNotAlreadyInitialized()

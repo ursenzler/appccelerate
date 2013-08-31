@@ -253,7 +253,7 @@ namespace Appccelerate.StateMachine.Machine
             return new HierarchyBuilder<TState, TEvent>(this.states, superStateId);
         }
 
-        public virtual void OnExceptionThrown(ITransitionContext<TState, TEvent> context, Exception exception)
+        public void OnExceptionThrown(ITransitionContext<TState, TEvent> context, Exception exception)
         {
             RethrowExceptionIfNoHandlerRegistered(exception, this.TransitionExceptionThrown);
 
@@ -264,7 +264,7 @@ namespace Appccelerate.StateMachine.Machine
         /// Fires the <see cref="TransitionBegin"/> event.
         /// </summary>
         /// <param name="transitionContext">The transition context.</param>
-        public virtual void OnTransitionBegin(ITransitionContext<TState, TEvent> transitionContext)
+        public void OnTransitionBegin(ITransitionContext<TState, TEvent> transitionContext)
         {
             this.RaiseEvent(this.TransitionBegin, new TransitionEventArgs<TState, TEvent>(transitionContext), transitionContext, true);
         }
@@ -320,11 +320,20 @@ namespace Appccelerate.StateMachine.Machine
             this.LoadHistoryStates(stateMachineLoader);
         }
 
+        // ReSharper disable once UnusedParameter.Local
+        private static void RethrowExceptionIfNoHandlerRegistered<T>(Exception exception, EventHandler<T> exceptionHandler) where T : EventArgs
+        {
+            if (exceptionHandler == null)
+            {
+                throw new StateMachineException("No exception listener is registered. Exception: ", exception);
+            }
+        }
+
         /// <summary>
         /// Fires the <see cref="TransitionDeclined"/> event.
         /// </summary>
         /// <param name="transitionContext">The transition event context.</param>
-        protected virtual void OnTransitionDeclined(ITransitionContext<TState, TEvent> transitionContext)
+        private void OnTransitionDeclined(ITransitionContext<TState, TEvent> transitionContext)
         {
             this.RaiseEvent(this.TransitionDeclined, new TransitionEventArgs<TState, TEvent>(transitionContext), transitionContext, true);
         }
@@ -333,17 +342,9 @@ namespace Appccelerate.StateMachine.Machine
         /// Fires the <see cref="TransitionCompleted"/> event.
         /// </summary>
         /// <param name="transitionContext">The transition event context.</param>
-        protected virtual void OnTransitionCompleted(ITransitionContext<TState, TEvent> transitionContext)
+        private void OnTransitionCompleted(ITransitionContext<TState, TEvent> transitionContext)
         {
             this.RaiseEvent(this.TransitionCompleted, new TransitionCompletedEventArgs<TState, TEvent>(this.CurrentStateId, transitionContext), transitionContext, true);
-        }
-
-        private static void RethrowExceptionIfNoHandlerRegistered<T>(Exception exception, EventHandler<T> exceptionHandler) where T : EventArgs
-        {
-            if (exceptionHandler == null)
-            {
-                throw new StateMachineException("No exception listener is registerd. Exception: ", exception);
-            }
         }
 
         private void LoadCurrentState(IStateMachineLoader<TState> stateMachineLoader)

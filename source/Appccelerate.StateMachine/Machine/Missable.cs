@@ -48,7 +48,7 @@ namespace Appccelerate.StateMachine.Machine
                 return this.value;
             }
 
-            set
+            private set
             {
                 this.value = value;
 

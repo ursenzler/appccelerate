@@ -26,7 +26,6 @@ namespace Appccelerate.StateMachine.Reports
 
     using Appccelerate.Formatters;
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.States;
     using Appccelerate.StateMachine.Machine.Transitions;
 
     /// <summary>
@@ -52,6 +51,8 @@ namespace Appccelerate.StateMachine.Reports
         /// <param name="initialStateId">The initial state id.</param>
         public void Report(string name, IEnumerable<IState<TState, TEvent>> states, Initializable<TState> initialStateId)
         {
+            states = states.ToList();
+
             Ensure.ArgumentNotNull(states, "states");
             Ensure.ArgumentNotNull(initialStateId, "initialStateId");
 
@@ -62,12 +63,10 @@ namespace Appccelerate.StateMachine.Reports
             report.AppendFormat("{0}: initial state = {1}{2}", name, initialStateId.IsInitialized ? initialStateId.Value.ToString() : "none", Environment.NewLine);
 
             // write states
-            foreach (var state in states)
+            var rootStates = states.Where(state => state.SuperState == null);
+            foreach (var state in rootStates)
             {
-                if (state.SuperState == null)
-                {
-                    this.ReportState(state, report, Indentation);
-                }
+                this.ReportState(state, report, Indentation);
             }
 
             this.Result = report.ToString();

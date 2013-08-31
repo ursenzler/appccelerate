@@ -94,7 +94,7 @@ namespace Appccelerate.StateMachine.Machine.Transitions
                 this,
                 context));
 
-            return new TransitionResult<TState, TEvent>(true, newState, context.Exceptions);
+            return new TransitionResult<TState, TEvent>(true, newState);
         }
 
         public override string ToString()

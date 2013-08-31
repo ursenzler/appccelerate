@@ -164,7 +164,7 @@ namespace Appccelerate.StateMachine
     {
         private const int TestState = 1;
 
-        static PassiveStateMachine<int, int> machine;
+        static IStateMachine<int, int> machine;
         static IStateMachineLoader<int> loader;
         static Exception receivedException;
 
