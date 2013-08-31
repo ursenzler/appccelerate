@@ -51,7 +51,7 @@ namespace Appccelerate.StateMachine
         Because of = () =>
             machine.Fire(new MyEvent(1));
 
-        It should_use_Equals_to_compare_states_and_events = () =>
+        It should_use_equals_to_compare_states_and_events = () =>
             arrivedInStateB.Should().BeTrue("state B should be current state");
 
         public class MyState : IComparable
@@ -61,7 +61,7 @@ namespace Appccelerate.StateMachine
                 this.Name = name;
             }
 
-            public string Name { get; private set; }
+            private string Name { get; set; }
 
             public override bool Equals(object obj)
             {
@@ -93,7 +93,7 @@ namespace Appccelerate.StateMachine
                 throw new InvalidOperationException("state machine should not use CompareTo");
             }
 
-            protected bool Equals(MyState other)
+            private bool Equals(MyState other)
             {
                 return string.Equals(this.Name, other.Name);
             }
@@ -106,7 +106,7 @@ namespace Appccelerate.StateMachine
                 this.Identifier = identifier;
             }
 
-            public int Identifier { get; private set; }
+            private int Identifier { get; set; }
 
             public override bool Equals(object obj)
             {
@@ -138,7 +138,7 @@ namespace Appccelerate.StateMachine
                 throw new InvalidOperationException("state machine should not use CompareTo");
             }
 
-            protected bool Equals(MyEvent other)
+            private bool Equals(MyEvent other)
             {
                 return this.Identifier == other.Identifier;
             }

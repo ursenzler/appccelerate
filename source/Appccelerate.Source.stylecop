@@ -23,7 +23,7 @@
           <Value>\.Designer\.cs$</Value>
           <Value>\.generated\.cs$</Value>
           <Value>\.g\.i\.cs$</Value>
-		  <Value>TemporaryGeneratedFile_.*\.cs$</Value>
+          <Value>TemporaryGeneratedFile_.*\.cs$</Value>
         </CollectionProperty>
       </ParserSettings>
     </Parser>
@@ -87,6 +87,16 @@
     <Analyzer AnalyzerId="StyleCop.CSharp.MaintainabilityRules">
       <Rules>
         <Rule Name="CodeAnalysisSuppressionMustHaveJustification">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">False</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+      </Rules>
+      <AnalyzerSettings />
+    </Analyzer>
+    <Analyzer AnalyzerId="StyleCop.CSharp.OrderingRules">
+      <Rules>
+        <Rule Name="StaticElementsMustAppearBeforeInstanceElements">
           <RuleSettings>
             <BooleanProperty Name="Enabled">False</BooleanProperty>
           </RuleSettings>

@@ -18,6 +18,9 @@
 
 namespace Appccelerate.StateMachine
 {
+    using System;
+    using System.Globalization;
+
     using FluentAssertions;
     using global::Machine.Specifications;
 
@@ -67,37 +70,26 @@ namespace Appccelerate.StateMachine
                 machine.Start();
             };
 
-        Because of = () =>
-            {
-                machine.Fire(Event);
-            };
+        Because of = () => machine.Fire(Event);
 
-        It should_execute_exit_action_of_source_state = () =>
-            {
-                log.Should().Contain("exit" + SourceState);
-            };
+        It should_execute_exit_action_of_source_state = () => 
+            log.Should().Contain("exit" + SourceState);
 
-        It should_execute_exit_action_of_parent_of_source_state = () =>
-            {
-                log.Should().Contain("exit" + ParentOfSourceState);
-            };
+        It should_execute_exit_action_of_parent_of_source_state = () => 
+            log.Should().Contain("exit" + ParentOfSourceState);
 
-        It should_execute_entry_action_of_parent_of_destination_state = () =>
-            {
-                log.Should().Contain("enter" + ParentOfDestinationState);
-            };
+        It should_execute_entry_action_of_parent_of_destination_state = () => 
+            log.Should().Contain("enter" + ParentOfDestinationState);
 
-        It should_execute_entry_action_of_destination_state = () =>
-            {
-                log.Should().Contain("enter" + DestinationState);
-            };
+        It should_execute_entry_action_of_destination_state = () => 
+            log.Should().Contain("enter" + DestinationState);
 
         It should_execute_actions_from_source_upwards_and_then_downwards_to_destination_state = () =>
             {
-                int s = log.IndexOf(SourceState.ToString());
-                int ps = log.IndexOf(ParentOfSourceState.ToString());
-                int d = log.IndexOf(DestinationState.ToString());
-                int pd = log.IndexOf(ParentOfDestinationState.ToString());
+                int s = log.IndexOf(SourceState.ToString(CultureInfo.InvariantCulture), StringComparison.Ordinal);
+                int ps = log.IndexOf(ParentOfSourceState.ToString(CultureInfo.InvariantCulture), StringComparison.Ordinal);
+                int d = log.IndexOf(DestinationState.ToString(CultureInfo.InvariantCulture), StringComparison.Ordinal);
+                int pd = log.IndexOf(ParentOfDestinationState.ToString(CultureInfo.InvariantCulture), StringComparison.Ordinal);
 
                 s.Should().BeLessThan(ps);
                 ps.Should().BeLessThan(pd);
@@ -150,14 +142,10 @@ namespace Appccelerate.StateMachine
             machine.Start();
         };
 
-        Because of = () =>
-        {
+        Because of = () => 
             machine.Fire(Event);
-        };
 
-        It should_remain_inside_common_ancestor_state = () =>
-            {
-                commonAncestorStateLeft.Should().BeFalse();
-            };
+        It should_remain_inside_common_ancestor_state = () => 
+            commonAncestorStateLeft.Should().BeFalse();
     }
 }

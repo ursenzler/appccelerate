@@ -20,8 +20,6 @@ namespace Appccelerate.StateMachine
 {
     public static class Concern
     {
-        public const string FireEvent = "Fire events";
-
         public const string Initialization = "Initialize state machine";
 
         public const string StartStop = "Start and stop state machine";

@@ -176,7 +176,7 @@ namespace Appccelerate.StateMachine
         It should_handle_all_exceptions_of_all_throwing_entry_actions = () =>
         {
             ReceivedException
-                .Should().BeEquivalentTo(new[] { Exception2, Exception3 });
+                .Should().BeEquivalentTo(new object[] { Exception2, Exception3 });
         };
     }
 
@@ -346,7 +346,7 @@ namespace Appccelerate.StateMachine
 
         It should_handle_all_exceptions_of_all_throwing_exit_actions = () =>
             ReceivedException
-                .Should().BeEquivalentTo(new[]
+                .Should().BeEquivalentTo(new object[]
                     {
                         Exception2, Exception3
                     });

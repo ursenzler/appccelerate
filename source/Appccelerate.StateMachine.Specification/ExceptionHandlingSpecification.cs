@@ -231,6 +231,7 @@ namespace Appccelerate.StateMachine
         protected static PassiveStateMachine<int, int> machine;
         protected static TransitionExceptionEventArgs<int, int> receivedTransitionExceptionEventArgs;
 
+        // ReSharper disable once UnusedMember.Local because it is a base spec
         Establish context = () =>
             {
                 receivedTransitionExceptionEventArgs = null;
@@ -241,7 +242,7 @@ namespace Appccelerate.StateMachine
             };
     }
 
-    public class Values
+    public static class Values
     {
         public const int Source = 1;
         public const int Destination = 2;

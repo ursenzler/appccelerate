@@ -19,8 +19,6 @@
 namespace Appccelerate.StateMachine
 {
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.States;
-
     using Extensions;
 
     public class CurrentStateExtension : ExtensionBase<int, int>

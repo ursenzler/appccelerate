@@ -19,10 +19,7 @@
 namespace Appccelerate.StateMachine
 {
     using System.Collections.Generic;
-
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.Transitions;
-
     using Extensions;
 
     public class RecordEventsExtension : ExtensionBase<int, int>
