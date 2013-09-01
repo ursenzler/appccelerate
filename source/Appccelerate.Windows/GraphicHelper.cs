@@ -32,13 +32,13 @@ namespace Appccelerate.Windows
         /// <returns>The number of DPIs of the windows desktop</returns>
         public static int GetDpi()
         {
-            IntPtr dPC = NativeMethods.GetDC(NativeMethods.GetDesktopWindow());
-            int dpi = NativeMethods.GetDeviceCaps(dPC, 88);
-            NativeMethods.ReleaseDC(NativeMethods.GetDesktopWindow(), dPC);
+            IntPtr window = NativeMethods.GetDC(NativeMethods.GetDesktopWindow());
+            int dpi = NativeMethods.GetDeviceCaps(window, 88);
+            NativeMethods.ReleaseDC(NativeMethods.GetDesktopWindow(), window);
             return dpi;
         }
 
-        internal static class NativeMethods
+        private static class NativeMethods
         {
             [DllImport("user32.dll", EntryPoint = "GetDesktopWindow")]
             internal static extern IntPtr GetDesktopWindow();

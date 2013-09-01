@@ -25,6 +25,7 @@ namespace Appccelerate.Windows
     /// <summary>
     /// Provides functionality in the scope of applications.
     /// </summary>
+    // ReSharper disable once UnusedMember.Global
     public static class ApplicationHelper
     {
         /// <summary>
@@ -32,6 +33,7 @@ namespace Appccelerate.Windows
         /// </summary>
         /// <param name="switchToAlreadyRunningProcess">Whether the already running process is flashed and brought to front.</param>
         /// <returns>Whether another instance of the application is already running.</returns>
+        // ReSharper disable once UnusedMember.Global
         public static bool CheckApplicationAlreadyRunning(bool switchToAlreadyRunningProcess)
         {
             Process[] processes = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
@@ -57,10 +59,9 @@ namespace Appccelerate.Windows
             return false;
         }
 
-        internal static class NativeMethods
+        private static class NativeMethods
         {
             /// <summary>
-            /// EXTERN
             /// The SwitchToThisWindow function is called to switch focus to a specified window and bring it to the foreground.
             /// </summary>
             /// <param name="windowHandle">Handle to the window being switched to.</param>

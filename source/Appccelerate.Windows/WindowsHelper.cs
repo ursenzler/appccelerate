@@ -24,6 +24,8 @@ namespace Appccelerate.Windows
     /// <summary>
     /// Provides functionality to interact with Windows (OS).
     /// </summary>
+    // ReSharper disable UnusedMember.Global
+    // ReSharper disable InconsistentNaming
     public static class WindowsHelper
     {
         /// <summary>
@@ -159,7 +161,11 @@ namespace Appccelerate.Windows
         [StructLayout(LayoutKind.Sequential)]
         private struct LUID
         {
+            // ReSharper disable once MemberCanBePrivate.Local
+            // ReSharper disable once FieldCanBeMadeReadOnly.Local
             public uint LowPart;
+            // ReSharper disable once MemberCanBePrivate.Local
+            // ReSharper disable once FieldCanBeMadeReadOnly.Local
             public uint HighPart;
         }
 
