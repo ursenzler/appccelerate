@@ -32,6 +32,7 @@ namespace Appccelerate.StateMachine.Machine.ActionHolders
         {
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global because of FakeItEasy
         public interface IDerived : IBase
         {
         }
@@ -57,7 +58,7 @@ namespace Appccelerate.StateMachine.Machine.ActionHolders
         {
             var testee = new ArgumentActionHolder<IBase>(BaseAction);
 
-            Action action = () => { testee.Execute(3); };
+            Action action = () => testee.Execute(3);
 
             action.ShouldThrow<ArgumentException>();
         }
@@ -67,7 +68,7 @@ namespace Appccelerate.StateMachine.Machine.ActionHolders
         {
             var testee = new ArgumentActionHolder<IBase>(BaseAction);
 
-            Action action = () => { testee.Execute(new object[] { 3, 4 }); };
+            Action action = () => testee.Execute(new object[] { 3, 4 });
 
             action.ShouldThrow<ArgumentException>();
         }
@@ -77,7 +78,7 @@ namespace Appccelerate.StateMachine.Machine.ActionHolders
         {
             var testee = new ArgumentActionHolder<IBase>(BaseAction);
 
-            Action action = () => { testee.Execute(new object[] { }); };
+            Action action = () => testee.Execute(new object[] { });
 
             action.ShouldThrow<ArgumentException>();
         }

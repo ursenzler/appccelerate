@@ -204,7 +204,7 @@ namespace Appccelerate.StateMachine.Machine
         }
 
         [Fact]
-        public void MultipleTransitionsWithoutGuardsWhenDefiningAGotoTheninvalidOperationException()
+        public void MultipleTransitionsWithoutGuardsWhenDefiningAGotoThenInvalidOperationException()
         {
             this.testee.In(StateMachine.States.A)
                 .On(StateMachine.Events.B).If(() => false).Goto(StateMachine.States.C)
@@ -216,7 +216,7 @@ namespace Appccelerate.StateMachine.Machine
         }
 
         [Fact]
-        public void MultipleTransitionsWithoutGuardsWhenDefiningAnActionTheninvalidOperationException()
+        public void MultipleTransitionsWithoutGuardsWhenDefiningAnActionThenInvalidOperationException()
         {
             this.testee.In(StateMachine.States.A)
                 .On(StateMachine.Events.B).Goto(StateMachine.States.B);
@@ -257,7 +257,7 @@ namespace Appccelerate.StateMachine.Machine
             var loader = A.Fake<IStateMachineLoader<StateMachine.States>>();
 
             A.CallTo(() => loader.LoadHistoryStates())
-                .Returns(new Dictionary<StateMachine.States, StateMachine.States>()
+                .Returns(new Dictionary<StateMachine.States, StateMachine.States>
                              {
                                  { StateMachine.States.B, StateMachine.States.A }
                              });
@@ -277,10 +277,10 @@ namespace Appccelerate.StateMachine.Machine
         /// <param name="expectedException">The expected exception.</param>
         private void AssertException(StateMachine.States expectedStateId, StateMachine.Events expectedEventId, object[] expectedEventArguments, Exception expectedException)
         {
-            Assert.Equal(expectedStateId, this.recordedStateId);
-            Assert.Equal(expectedEventId, this.recordedEventId);
-            Assert.Equal(expectedEventArguments, this.recordedEventArgument);
-            Assert.Equal(expectedException, this.recordedException);
+            this.recordedStateId.Should().Be(expectedStateId);
+            this.recordedEventId.Should().Be(expectedEventId);
+            this.recordedEventArgument.Should().Be(expectedEventArguments);
+            this.recordedException.Should().Be(expectedException);
         }
     }
 }

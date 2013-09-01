@@ -81,7 +81,7 @@ namespace Appccelerate.StateMachine.Reports
         private enum Events
         {
             /// <summary>An error occurred.</summary>
-            ErrorOccured,
+            ErrorOccurred,
 
             /// <summary>Reset after error.</summary>
             Reset,
@@ -123,11 +123,11 @@ namespace Appccelerate.StateMachine.Reports
                 .WithSubState(States.DoorOpen);
 
             elevator.In(States.Healthy)
-                .On(Events.ErrorOccured).Goto(States.Error);
+                .On(Events.ErrorOccurred).Goto(States.Error);
 
             elevator.In(States.Error)
                 .On(Events.Reset).Goto(States.Healthy)
-                .On(Events.ErrorOccured);
+                .On(Events.ErrorOccurred);
 
             elevator.In(States.OnFloor)
                 .ExecuteOnEntry(AnnounceFloor)
@@ -165,7 +165,7 @@ namespace Appccelerate.StateMachine.Reports
                 transitionsReport = reader.ReadToEnd();
             }
 
-            const string ExpectedTransitionsReport = "Source;Event;Guard;Target;ActionsHealthy;ErrorOccured;;Error;OnFloor;CloseDoor;;DoorClosed;OnFloor;OpenDoor;;DoorOpen;OnFloor;GoUp;CheckOverload;MovingUp;OnFloor;GoUp;;internal transition;AnnounceOverload, BeepOnFloor;GoDown;CheckOverload;MovingDown;OnFloor;GoDown;;internal transition;AnnounceOverloadMoving;Stop;;OnFloor;Error;Reset;;Healthy;Error;ErrorOccured;;internal transition;";
+            const string ExpectedTransitionsReport = "Source;Event;Guard;Target;ActionsHealthy;ErrorOccurred;;Error;OnFloor;CloseDoor;;DoorClosed;OnFloor;OpenDoor;;DoorOpen;OnFloor;GoUp;CheckOverload;MovingUp;OnFloor;GoUp;;internal transition;AnnounceOverload, BeepOnFloor;GoDown;CheckOverload;MovingDown;OnFloor;GoDown;;internal transition;AnnounceOverloadMoving;Stop;;OnFloor;Error;Reset;;Healthy;Error;ErrorOccurred;;internal transition;";
             const string ExpectedStatesReport = "Source;Entry;Exit;ChildrenHealthy;;;OnFloor, MovingOnFloor;AnnounceFloor;Beep, Beep;DoorClosed, DoorOpenMoving;;;MovingUp, MovingDownMovingUp;;;MovingDown;;;DoorClosed;;;DoorOpen;;;Error;;;";
 
             statesReport.Replace("\n", string.Empty).Replace("\r", string.Empty)

@@ -1,0 +1,1 @@
+copy the external annotation files to [resharper install dir]/ExternalAnnotations

@@ -77,7 +77,7 @@ namespace Appccelerate.StateMachine.Machine.Transitions
             IGuardHolder guard = Builder<States, Events>.CreateGuardHolder().ReturningFalse().Build();
             this.Testee.Guard = guard;
 
-            ITransitionResult<States, Events> result = this.Testee.Fire(this.TransitionContext);
+            this.Testee.Fire(this.TransitionContext);
 
             A.CallTo(() => extension.SkippedTransition(
                 this.StateMachineInformation,

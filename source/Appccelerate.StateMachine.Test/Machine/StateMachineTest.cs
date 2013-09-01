@@ -235,7 +235,7 @@ namespace Appccelerate.StateMachine.Machine
             var loader = A.Fake<IStateMachineLoader<StateMachine.States>>();
 
             A.CallTo(() => loader.LoadHistoryStates())
-                .Returns(new Dictionary<StateMachine.States, StateMachine.States>()
+                .Returns(new Dictionary<StateMachine.States, StateMachine.States>
                              {
                                  { StateMachine.States.D, StateMachine.States.D2 }
                              });
@@ -552,13 +552,17 @@ namespace Appccelerate.StateMachine.Machine
         /// </summary>
         /// <typeparam name="T">Type of the record.</typeparam>
         /// <param name="state">The state.</param>
-        private void CheckRecord<T>(StateMachine.States state)
+        private void CheckRecord<T>(StateMachine.States state) where T : Record
         {
             Record record = this.records.FirstOrDefault();
 
-            Assert.NotNull(record);
-            Assert.True(record.GetType() == typeof(T) && record.State == state, record.Message);
+            var x = record.As<T>();
 
+            record.Should().NotBeNull();
+            record.Should().BeAssignableTo<T>();
+            // ReSharper disable once PossibleNullReferenceException
+            record.State.Should().Be(state, record.Message);
+            
             this.records.RemoveAt(0);
         }
 

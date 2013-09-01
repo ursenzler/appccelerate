@@ -19,13 +19,11 @@
 namespace Appccelerate.StateMachine
 {
     using System;
-    using System.Collections.Generic;
     using Appccelerate.StateMachine.Machine;
-    using Appccelerate.StateMachine.Machine.ActionHolders;
     using Appccelerate.StateMachine.Machine.GuardHolders;
     using FakeItEasy;
 
-    public class Builder<TState, TEvent>
+    public static class Builder<TState, TEvent>
             where TState : IComparable
             where TEvent : IComparable
     {
@@ -86,7 +84,7 @@ namespace Appccelerate.StateMachine
 
             private IState<TState, TEvent> superState;
 
-            private int level = 0;
+            private int level;
 
             public StateBuilder()
             {

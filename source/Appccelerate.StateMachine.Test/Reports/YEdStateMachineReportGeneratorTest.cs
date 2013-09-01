@@ -84,7 +84,7 @@ namespace Appccelerate.StateMachine.Reports
         }
 
         [Fact]
-        public void YEdGraphML()
+        public void YEdGraphMl()
         {
             var elevator = new PassiveStateMachine<States, Events>("Elevator");
 

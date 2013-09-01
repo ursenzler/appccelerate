@@ -60,26 +60,13 @@ namespace Appccelerate.StateMachine
             this.testee.TransitionDeclined += (sender, e) => this.TransitionDeclinedMessages.Add(e);
         }
 
-        /// <summary>
-        /// Gets the exceptions that were notified.
-        /// </summary>
-        /// <value>The exceptions.</value>
-        protected List<EventArgs> Exceptions { get; private set; }
+        private List<EventArgs> Exceptions { get; set; }
 
-        /// <summary>
-        /// Gets the begin transition messages that were notified.
-        /// </summary>
-        protected List<TransitionEventArgs<States, Events>> TransitionBeginMessages { get; private set; }
+        private List<TransitionEventArgs<States, Events>> TransitionBeginMessages { get; set; }
 
-        /// <summary>
-        /// Gets the  transition completed messages that were notified.
-        /// </summary>
-        protected List<TransitionCompletedEventArgs<States, Events>> TransitionCompletedMessages { get; private set; }
+        private List<TransitionCompletedEventArgs<States, Events>> TransitionCompletedMessages { get; set; }
 
-        /// <summary>
-        /// Gets the transition declined messages that were notified.
-        /// </summary>
-        protected List<TransitionEventArgs<States, Events>> TransitionDeclinedMessages { get; private set; }
+        private List<TransitionEventArgs<States, Events>> TransitionDeclinedMessages { get; set; }
 
         public void Dispose()
         {
@@ -161,30 +148,30 @@ namespace Appccelerate.StateMachine
         {
             AutoResetEvent allTransitionsCompleted = this.SetUpWaitForAllTransitions(1);
 
-            this.testee.DefineHierarchyOn(StateMachine.States.B)
+            this.testee.DefineHierarchyOn(States.B)
                 .WithHistoryType(HistoryType.None)
-                .WithInitialSubState(StateMachine.States.B1)
-                .WithSubState(StateMachine.States.B2);
+                .WithInitialSubState(States.B1)
+                .WithSubState(States.B2);
 
-            this.testee.DefineHierarchyOn(StateMachine.States.C)
+            this.testee.DefineHierarchyOn(States.C)
                 .WithHistoryType(HistoryType.Shallow)
-                .WithInitialSubState(StateMachine.States.C2)
-                .WithSubState(StateMachine.States.C1);
+                .WithInitialSubState(States.C2)
+                .WithSubState(States.C1);
 
-            this.testee.DefineHierarchyOn(StateMachine.States.C1)
+            this.testee.DefineHierarchyOn(States.C1)
                 .WithHistoryType(HistoryType.Shallow)
-                .WithInitialSubState(StateMachine.States.C1A)
-                .WithSubState(StateMachine.States.C1B);
+                .WithInitialSubState(States.C1A)
+                .WithSubState(States.C1B);
 
-            this.testee.DefineHierarchyOn(StateMachine.States.D)
+            this.testee.DefineHierarchyOn(States.D)
                 .WithHistoryType(HistoryType.Deep)
-                .WithInitialSubState(StateMachine.States.D1)
-                .WithSubState(StateMachine.States.D2);
+                .WithInitialSubState(States.D1)
+                .WithSubState(States.D2);
 
-            this.testee.DefineHierarchyOn(StateMachine.States.D1)
+            this.testee.DefineHierarchyOn(States.D1)
                 .WithHistoryType(HistoryType.Deep)
-                .WithInitialSubState(StateMachine.States.D1A)
-                .WithSubState(StateMachine.States.D1B);
+                .WithInitialSubState(States.D1A)
+                .WithSubState(States.D1B);
 
             this.testee.In(States.A)
                 .On(Events.B).Goto(States.B);
@@ -315,15 +302,16 @@ namespace Appccelerate.StateMachine
         /// <param name="newState">The new state.</param>
         private void CheckTransitionCompletedMessage(object eventArgument, States origin, Events eventId, States newState)
         {
-            Assert.Equal(1, this.TransitionCompletedMessages.Count);
-            Assert.Equal(origin, this.TransitionCompletedMessages[0].StateId);
-            Assert.Equal(eventId, this.TransitionCompletedMessages[0].EventId);
+            this.TransitionCompletedMessages.Should().HaveCount(1);
+            this.TransitionCompletedMessages[0].StateId.Should().Be(origin);
+            this.TransitionCompletedMessages[0].EventId.Should().Be(eventId);
+            
             if (eventArgument != null)
             {
-                Assert.Equal(eventArgument, this.TransitionCompletedMessages[0].EventArgument);
+                this.TransitionCompletedMessages[0].EventArgument.Should().Be(eventArgument);
             }
 
-            Assert.Equal(newState, this.TransitionCompletedMessages[0].NewStateId);
+            this.TransitionCompletedMessages[0].NewStateId.Should().Be(newState);
         }
 
         /// <summary>
@@ -334,10 +322,10 @@ namespace Appccelerate.StateMachine
         /// <param name="eventArgument">The event argument.</param>
         private void CheckBeginTransitionMessage(States origin, Events eventId, object eventArgument)
         {
-            Assert.Equal(1, this.TransitionBeginMessages.Count);
-            Assert.Equal(origin, this.TransitionBeginMessages[0].StateId);
-            Assert.Equal(eventId, this.TransitionBeginMessages[0].EventId);
-            Assert.Equal(eventArgument, this.TransitionBeginMessages[0].EventArgument);
+            this.TransitionBeginMessages.Should().HaveCount(1);
+            this.TransitionBeginMessages[0].StateId.Should().Be(origin);
+            this.TransitionBeginMessages[0].EventId.Should().Be(eventId);
+            this.TransitionBeginMessages[0].EventArgument.Should().Be(eventArgument);
         }
 
         /// <summary>

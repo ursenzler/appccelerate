@@ -31,18 +31,14 @@ namespace Appccelerate.StateMachine.Machine.States
 
     public class StateTest
     {
-        private readonly IStateMachineInformation<States, Events> stateMachineInformation;
-
-        private readonly IExtensionHost<States, Events> extensionHost;
-
         private readonly State<States, Events> testee;
 
         public StateTest()
         {
-            this.stateMachineInformation = A.Fake<IStateMachineInformation<States, Events>>();
-            this.extensionHost = A.Fake<IExtensionHost<States, Events>>();
-
-            this.testee = new State<States, Events>(States.A, this.stateMachineInformation, this.extensionHost);
+            this.testee = new State<States, Events>(
+                States.A, 
+                A.Fake<IStateMachineInformation<States, Events>>(), 
+                A.Fake<IExtensionHost<States, Events>>());
         }
 
         [Fact]

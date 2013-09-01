@@ -53,7 +53,7 @@ namespace Appccelerate.StateMachine.Machine.Transitions
 
         public class TestableExtensionHost : IExtensionHost<States, Events>
         {
-            public IExtension<States, Events> Extension { get; set; } 
+            public IExtension<States, Events> Extension { private get; set; } 
 
             public void ForEach(Action<IExtension<States, Events>> action)
             {

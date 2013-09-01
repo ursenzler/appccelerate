@@ -19,6 +19,7 @@
 namespace Appccelerate.StateMachine.Machine.Syntax
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     using Appccelerate.StateMachine.Syntax;
 
@@ -32,49 +33,49 @@ namespace Appccelerate.StateMachine.Machine.Syntax
         /// <summary>
         /// Simple check whether all possible cases can be defined with the syntax (not an actual test really).
         /// </summary>
+        [SuppressMessage("StyleCop.CSharp.LayoutRules", "SA1501:StatementMustNotBeOnSingleLine", Justification = "Reviewed. Suppression is OK here.")]
         [Fact]
         public void Syntax()
         {
-            IEntryActionSyntax<int, int> s = null;
+            IEntryActionSyntax<int, int> s = new StateBuilder<int, int>(null, null, null);
 
+            // ReSharper disable once UnusedVariable
             Action a = () =>
-                {
-                    s
-                        .ExecuteOnEntry(() => { })
-                        .ExecuteOnEntry((int i) => { })
-                        .ExecuteOnEntryParametrized(p => { }, 4)
-                        .ExecuteOnEntryParametrized(p => { }, "test")
-                        .ExecuteOnExit(() => { })
-                        .ExecuteOnExit((string st) => { })
-                        .ExecuteOnExitParametrized(p => { }, 4)
-                        .ExecuteOnExitParametrized(p => { }, "test")
-                        .On(3)
-                            .If(() => true).Goto(4).Execute(() => { }).Execute((int i) => { })
-                            .If(() => true).Goto(4)
-                            .If(() => true).Execute(() => { }).Execute((int i) => { }).Execute(() => { })
-                            .If<string>(this.AGuard).Execute(() => { }).Execute((int i) => { })
-                            .Otherwise().Goto(4)
-                        .On(5)
-                            .If(() => true).Execute(() => { })
-                            .Otherwise()
-                        .On(2)
-                            .If<int>(i => i != 0).Goto(7)
-                            .Otherwise().Goto(7)
-                        .On(1)
-                            .If(() => true).Goto(7).Execute(() => { }).Execute<string>(argument => { })
-                        .On(1)
-                            .If(() => true).Execute(() => { })
-                            .If(() => true).Execute((string argument) => { })
-                            .Otherwise().Execute(() => { }).Execute((int i) => { })
-                        .On(4)
-                            .Goto(5).Execute(() => { }).Execute<string>(argument => { })
-                        .On(5)
-                            .Execute(() => { }).Execute((int i) => { })
-                        .On(7)
-                            .Goto(4)
-                        .On(8)
-                        .On(9);
-                };
+                s
+                    .ExecuteOnEntry(() => { })
+                    .ExecuteOnEntry((int i) => { })
+                    .ExecuteOnEntryParametrized(p => { }, 4)
+                    .ExecuteOnEntryParametrized(p => { }, "test")
+                    .ExecuteOnExit(() => { })
+                    .ExecuteOnExit((string st) => { })
+                    .ExecuteOnExitParametrized(p => { }, 4)
+                    .ExecuteOnExitParametrized(p => { }, "test")
+                    .On(3)
+                        .If(() => true).Goto(4).Execute(() => { }).Execute((int i) => { })
+                        .If(() => true).Goto(4)
+                        .If(() => true).Execute(() => { }).Execute((int i) => { }).Execute(() => { })
+                        .If<string>(this.AGuard).Execute(() => { }).Execute((int i) => { })
+                        .Otherwise().Goto(4)
+                    .On(5)
+                        .If(() => true).Execute(() => { })
+                        .Otherwise()
+                    .On(2)
+                        .If<int>(i => i != 0).Goto(7)
+                        .Otherwise().Goto(7)
+                    .On(1)
+                        .If(() => true).Goto(7).Execute(() => { }).Execute<string>(argument => { })
+                    .On(1)
+                        .If(() => true).Execute(() => { })
+                        .If(() => true).Execute((string argument) => { })
+                        .Otherwise().Execute(() => { }).Execute((int i) => { })
+                    .On(4)
+                        .Goto(5).Execute(() => { }).Execute<string>(argument => { })
+                    .On(5)
+                        .Execute(() => { }).Execute((int i) => { })
+                    .On(7)
+                        .Goto(4)
+                    .On(8)
+                    .On(9);
         }
 
         [Fact]

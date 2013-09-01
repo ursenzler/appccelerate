@@ -43,6 +43,7 @@ namespace Appccelerate.StateMachine.Machine.GuardHolders
         {
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global because of FakeItEasy
         public interface IDerived : IBase
         {
         }
