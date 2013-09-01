@@ -103,10 +103,12 @@ namespace Appccelerate.StateMachine
         const int SecondEvent = 1;
 
         static IStateMachine<string, int> machine;
-        static AutoResetEvent signal = new AutoResetEvent(false);
+        static AutoResetEvent signal;
 
         Establish context = () =>
         {
+            signal = new AutoResetEvent(false);
+
             machine = new ActiveStateMachine<string, int>();
 
             machine.In("A").On(FirstEvent).Goto("B");
@@ -134,10 +136,12 @@ namespace Appccelerate.StateMachine
         const int SecondEvent = 1;
 
         static IStateMachine<string, int> machine;
-        static AutoResetEvent signal = new AutoResetEvent(false);
+        static AutoResetEvent signal;
 
         Establish context = () =>
         {
+            signal = new AutoResetEvent(false);
+
             machine = new ActiveStateMachine<string, int>();
 
             machine.In("A").On(SecondEvent).Goto("B");
@@ -165,10 +169,12 @@ namespace Appccelerate.StateMachine
         const int SecondEvent = 1;
 
         static IStateMachine<string, int> machine;
-        static AutoResetEvent signal = new AutoResetEvent(false);
+        static AutoResetEvent signal;
 
         Establish context = () =>
         {
+            signal = new AutoResetEvent(false);
+
             machine = new ActiveStateMachine<string, int>();
 
             machine.In("A").On(FirstEvent).Goto("B");
@@ -196,10 +202,12 @@ namespace Appccelerate.StateMachine
         const int SecondEvent = 1;
 
         static IStateMachine<string, int> machine;
-        static AutoResetEvent signal = new AutoResetEvent(false);
+        static AutoResetEvent signal;
 
         Establish context = () =>
         {
+            signal = new AutoResetEvent(false);
+
             machine = new ActiveStateMachine<string, int>();
 
             machine.In("A").On(SecondEvent).Goto("B");
