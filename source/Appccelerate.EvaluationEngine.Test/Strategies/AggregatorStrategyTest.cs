@@ -101,7 +101,8 @@ namespace Appccelerate.EvaluationEngine.Strategies
             aggregatorMock.Verify(aggregator => aggregator.Aggregate(expressions, expectedParameter, It.IsAny<Context>()));
         }
 
-        private class TestQuestion : Question<string, int>
+        // ReSharper disable once MemberCanBePrivate.Global because of faking
+        public class TestQuestion : Question<string, int>
         {
         }
 

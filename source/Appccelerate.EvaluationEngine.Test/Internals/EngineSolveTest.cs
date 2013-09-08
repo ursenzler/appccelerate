@@ -79,7 +79,8 @@ namespace Appccelerate.EvaluationEngine.Internals
             builder.Should().BeSameAs(builderMock.Object);
         }
 
-        private class TestQuestion : Question<string, int>
+        // ReSharper disable once MemberCanBePrivate.Global because of faking
+        public class TestQuestion : Question<string, int>
         {
         }
     }
