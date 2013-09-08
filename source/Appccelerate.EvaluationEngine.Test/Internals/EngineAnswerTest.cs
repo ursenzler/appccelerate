@@ -33,20 +33,18 @@ namespace Appccelerate.EvaluationEngine.Internals
         private readonly Engine testee;
 
         private readonly Mock<IDefinitionHost> definitionHostMock;
-        private readonly Mock<IDefinitionSyntaxFactory> syntaxFactoryMock;
-        private readonly Mock<IDefinitionFactory> definitionFactoryMock;
 
         public EngineAnswerTest()
         {
             this.definitionHostMock = new Mock<IDefinitionHost>();
-            this.syntaxFactoryMock = new Mock<IDefinitionSyntaxFactory>();
-            this.definitionFactoryMock = new Mock<IDefinitionFactory>();
+            var syntaxFactoryMock = new Mock<IDefinitionSyntaxFactory>();
+            var definitionFactoryMock = new Mock<IDefinitionFactory>();
             
-            this.testee = new Engine(this.definitionHostMock.Object, this.syntaxFactoryMock.Object, this.definitionFactoryMock.Object);
+            this.testee = new Engine(this.definitionHostMock.Object, syntaxFactoryMock.Object, definitionFactoryMock.Object);
         }
 
         [Fact]
-        public void AnswersQuestionsByExecutingTheStategyReturnedByTheDefinitionReturnedByTheDefinitionHostForTheQuestion()
+        public void AnswersQuestionsByExecutingTheStrategyReturnedByTheDefinitionReturnedByTheDefinitionHostForTheQuestion()
         {
             const string Answer = "42";
             const string Parameter = "test";
@@ -65,7 +63,7 @@ namespace Appccelerate.EvaluationEngine.Internals
         }
 
         [Fact]
-        public void ThrowsExcpetion_WhenNoDefinitionExists()
+        public void ThrowsException_WhenNoDefinitionExists()
         {
             var question = new TestQuestion();
 

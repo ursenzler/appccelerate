@@ -86,6 +86,7 @@ namespace Appccelerate.EvaluationEngine.Expressions
             description.Should().StartWith("inline expression = ");
         }
 
+        // ReSharper disable once UnusedParameter.Local
         private int InterceptQuestion(TestQuestion q, string parameter, out TestQuestion interceptedQuestion)
         {
             interceptedQuestion = q;
@@ -93,6 +94,7 @@ namespace Appccelerate.EvaluationEngine.Expressions
             return AResult;
         }
 
+        // ReSharper disable once UnusedParameter.Local
         private int InterceptParameter(TestQuestion q, string parameter, out string interceptedParameter)
         {
             interceptedParameter = parameter;

@@ -18,9 +18,12 @@
 
 namespace Appccelerate.EvaluationEngine
 {
+    using System.Collections.Generic;
     using System.Reflection;
 
-    using Appccelerate.EvaluationEngine.Internals;
+    using Appccelerate.EvaluationEngine.Expressions;
+
+    using FakeItEasy;
 
     using FluentAssertions;
 
@@ -65,5 +68,36 @@ namespace Appccelerate.EvaluationEngine
                 return "my own special strategy";
             }
         }
+    }
+
+    [Subject(Concern.Strategy)]
+    public class When_defining_aggregator_strategy
+    {
+        private const int TheAnswer = 42;
+
+        private static IEvaluationEngine engine;
+
+        private static IAggregator<int, int, Missing> aggregator; 
+        private static int answer;
+
+        Establish context = () =>
+        {
+            engine = new EvaluationEngine();
+
+            aggregator = A.Fake<IAggregator<int, int, Missing>>();
+            A.CallTo(() => aggregator.Aggregate(A<IEnumerable<IExpression<int, Missing>>>._, Missing.Value, A<Context>._)).Returns(TheAnswer);
+        };
+
+        Because of = () =>
+        {
+            engine.Solve<HowManyFruitsAreThere, int>()
+                .WithAggregatorStrategy()
+                .AggregateWith(aggregator);
+
+            answer = engine.Answer(new HowManyFruitsAreThere());
+        };
+
+        It should_use_aggregator_strategy_to_answer_the_question = () => 
+            answer.Should().Be(TheAnswer);
     }
 }

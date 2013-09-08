@@ -135,7 +135,7 @@ namespace Appccelerate.EvaluationEngine.Internals
         /// <param name="definition">The definition.</param>
         public void Merge(IDefinition definition)
         {
-            var def = definition as Definition<TQuestion, TAnswer, TParameter, TExpressionResult>;
+            var def = (Definition<TQuestion, TAnswer, TParameter, TExpressionResult>)definition;
 
             this.Aggregator = def.Aggregator ?? this.Aggregator;
 

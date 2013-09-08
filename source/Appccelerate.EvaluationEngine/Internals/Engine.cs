@@ -49,7 +49,7 @@ namespace Appccelerate.EvaluationEngine.Internals
             this.definitionHost = definitionHost;
             this.definitionSyntaxFactory = definitionSyntaxFactory;
             this.definitionFactory = definitionFactory;
-            this.log = new Extensions.EmptyLogExtension();
+            this.log = new EmptyLogExtension();
         }
 
         /// <summary>
@@ -158,6 +158,7 @@ namespace Appccelerate.EvaluationEngine.Internals
             this.log = logExtension;
         }
 
+        // ReSharper disable once UnusedParameter.Local
         private static void CheckValueNotNull(object value, string message)
         {
             if (value == null)

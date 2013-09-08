@@ -23,7 +23,7 @@ namespace Appccelerate.EvaluationEngine
     /// <summary>
     /// Main entry point.
     /// </summary>
-    public class Program
+    public static class Program
     {
         /// <summary>
         /// Main method.

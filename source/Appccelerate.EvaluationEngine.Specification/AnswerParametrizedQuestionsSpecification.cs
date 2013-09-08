@@ -41,14 +41,10 @@ namespace Appccelerate.EvaluationEngine
                 .ByEvaluating(q => expression);
         };
 
-        Because of = () =>
-        {
+        Because of = () => 
             evaluationEngine.Answer(new HowManyWordsDoesThisTextHave(), Parameter);
-        };
 
-        It should_pass_parameter_to_the_evaluation_expressions = () =>
-        {
+        It should_pass_parameter_to_the_evaluation_expressions = () => 
             expression.ReceivedParameter.Should().Be(Parameter);
-        };
     }
 }

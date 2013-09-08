@@ -22,7 +22,6 @@ namespace Appccelerate.EvaluationEngine
     using System.Linq;
 
     using Appccelerate.EvaluationEngine.Extensions;
-    using Appccelerate.EvaluationEngine.Internals;
 
     using FluentAssertions;
 
@@ -44,35 +43,29 @@ namespace Appccelerate.EvaluationEngine
 
                 engine.Solve<HowManyFruitsAreThereStartingWith, int, char>()
                     .AggregateWithExpressionAggregator(0, (aggregate, value) => aggregate + value)
-                    .ByEvaluating(q => new ParameterizedFruitExpression { Kind = "Apple", Count = 1 })
+                    .ByEvaluating(q => new ParametrizedFruitExpression { Kind = "Apple", Count = 1 })
                     .When(q => true)    
-                        .ByEvaluating(q => new[] { new ParameterizedFruitExpression { Kind = "Ananas", Count = 2 }, new ParameterizedFruitExpression { Kind = "Banana", Count = 4 } })
+                        .ByEvaluating(q => new[] { new ParametrizedFruitExpression { Kind = "Ananas", Count = 2 }, new ParametrizedFruitExpression { Kind = "Banana", Count = 4 } })
                         .ByEvaluating((q, p) => p == 'B' ? 8 : 0)
                     .When(q => false)
-                        .ByEvaluating(q => new ParameterizedFruitExpression { Kind = "Unknown" });
+                        .ByEvaluating(q => new ParametrizedFruitExpression { Kind = "Unknown" });
             };
 
-        Because of = () =>
-            {
-                engine.Answer(new HowManyFruitsAreThereStartingWith(), 'A');
-            };
+        Because of = () => 
+            engine.Answer(new HowManyFruitsAreThereStartingWith(), 'A');
 
         It should_log_how_answer_was_derived = () =>
-            {
-                Console.WriteLine(logExtension.FoundAnswerLog);
-                logExtension.FoundAnswerLog
-                    .Should().Contain(HowManyFruitsAreThereStartingWith.Description, "answered question")
-                    .And.Contain("aggregator strategy", "used strategy")
-                    .And.Contain("expression aggregator with seed '0' and aggregate function (aggregate, value) => (aggregate + value)", "used aggregator")
-                    .And.Contain("Parameter = A", "provided parameter")
-                    .And.Contain("Answer = 3", "calculated answer")
-                    .And.Contain("1 Apple returned 1", "used expression with result")
-                    .And.Contain("2 Ananas returned 2", "used expression with result")
-                    .And.Contain("4 Banana returned 0", "used expression with result")
-                    .And.Contain("inline expression = (q, p) => IIF((Convert(p) == 66), 8, 0) returned 0", "used expression with result");
-
-                logExtension.FoundAnswerLog.IndexOf("Unknown").Should().Be(-1, "unknwon expression should not be evaluted due to unfulfilled constraint");
-            };
+            logExtension.FoundAnswerLog
+                .Should().Contain(HowManyFruitsAreThereStartingWith.Description, "answered question")
+                .And.Contain("aggregator strategy", "used strategy")
+                .And.Contain("expression aggregator with seed '0' and aggregate function (aggregate, value) => (aggregate + value)", "used aggregator")
+                .And.Contain("Parameter = A", "provided parameter")
+                .And.Contain("Answer = 3", "calculated answer")
+                .And.Contain("1 Apple returned 1", "used expression with result")
+                .And.Contain("2 Ananas returned 2", "used expression with result")
+                .And.Contain("4 Banana returned 0", "used expression with result")
+                .And.Contain("inline expression = (q, p) => IIF((Convert(p) == 66), 8, 0) returned 0", "used expression with result")
+                .And.NotContain("Unknown", "unknwon expression should not be evaluated due to unfulfilled constraint");
 
         private class Logger : ILogExtension
         {

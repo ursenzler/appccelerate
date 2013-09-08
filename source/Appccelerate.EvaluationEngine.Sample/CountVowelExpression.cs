@@ -31,7 +31,7 @@ namespace Appccelerate.EvaluationEngine
         /// Gets or sets the vowel to count.
         /// </summary>
         /// <value>The vowel to count.</value>
-        public char Vowel { get; set; }
+        public char Vowel { private get; set; }
 
         /// <summary>
         /// Evaluates the number of <see cref="Vowel"/> in the passed parameter.

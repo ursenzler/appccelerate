@@ -36,7 +36,7 @@ namespace Appccelerate.EvaluationEngine.Expressions
         /// Describes this instance.
         /// </summary>
         /// <returns>Same as <see cref="object.ToString"/></returns>
-        public string Describe()
+        public virtual string Describe()
         {
             return this.ToString();
         }

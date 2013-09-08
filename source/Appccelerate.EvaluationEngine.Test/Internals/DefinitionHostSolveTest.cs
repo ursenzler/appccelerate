@@ -93,10 +93,12 @@ namespace Appccelerate.EvaluationEngine.Internals
         {
         }
 
+        // ReSharper disable once ClassNeverInstantiated.Local
         private class AnotherQuestion : Question<string>
         {
         }
 
+        // ReSharper disable once ClassNeverInstantiated.Local
         private class YetAnotherQuestion : Question<string>
         {
         }

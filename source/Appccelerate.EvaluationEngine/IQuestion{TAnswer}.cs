@@ -33,7 +33,9 @@ namespace Appccelerate.EvaluationEngine
     /// </summary>
     /// <typeparam name="TAnswer">The type of the answer.</typeparam>
     /// <typeparam name="TParameter">The type of the parameter.</typeparam>
+    // ReSharper disable UnusedTypeParameter because they are used as markers
     public interface IQuestion<TAnswer, TParameter> : IDescriptionProvider
+    // ReSharper restore UnusedTypeParameter
     {
     }
 }

@@ -13,14 +13,19 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\packages\FakeItEasy.1.12.0\lib\net40\FakeItEasy.dll</HintPath>
+    </Reference>
     <Reference Include="FluentAssertions">
       <HintPath>..\packages\FluentAssertions.2.0.1\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
-    <Reference Include="Machine.Specifications">
-      <HintPath>..\packages\Machine.Specifications.0.5.12\lib\net40\Machine.Specifications.dll</HintPath>
+    <Reference Include="Machine.Specifications, Version=0.5.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Machine.Specifications.0.5.16\lib\net40\Machine.Specifications.dll</HintPath>
     </Reference>
-    <Reference Include="Machine.Specifications.Clr4">
-      <HintPath>..\packages\Machine.Specifications.0.5.12\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
+    <Reference Include="Machine.Specifications.Clr4, Version=0.5.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Machine.Specifications.0.5.16\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,14 +53,13 @@
     <Compile Include="LoggingSpecification.cs" />
     <Compile Include="ModuleSpecification.cs" />
     <Compile Include="NoAggregatorSpecification.cs" />
-    <Compile Include="ParameterizedFruitExpression.cs" />
+    <Compile Include="ParametrizedFruitExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StrategySpecification.cs" />
     <Compile Include="Validation\Concern.cs" />
     <Compile Include="Validation\ValidationExtensibilitySpecification.cs" />
     <Compile Include="Validation\ValidationSpecification.cs" />
     <Compile Include="WhatIsTheText.cs" />
-    <Compile Include="WhatWeekdayIsToday.cs" />
     <Compile Include="WordCountExpression.cs" />
   </ItemGroup>
   <ItemGroup>

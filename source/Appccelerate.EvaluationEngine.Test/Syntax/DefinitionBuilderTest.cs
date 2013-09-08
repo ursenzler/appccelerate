@@ -35,17 +35,12 @@ namespace Appccelerate.EvaluationEngine.Syntax
     {
         private readonly DefinitionBuilder<TestQuestion, string, int, string> testee;
 
-        private readonly Definition<TestQuestion, string, int, string> definition;
-
-        private readonly IExpressionProviderFactory factory;
-
         public DefinitionBuilderTest()
         {
-            this.factory = new DefaultFactory();
+            var factory = new DefaultFactory();
+            var definition = new Definition<TestQuestion, string, int, string>();
 
-            this.definition = new Definition<TestQuestion, string, int, string>();
-
-            this.testee = new DefinitionBuilder<TestQuestion, string, int, string>(this.definition, this.factory);
+            this.testee = new DefinitionBuilder<TestQuestion, string, int, string>(definition, factory);
         }
 
         [Fact]

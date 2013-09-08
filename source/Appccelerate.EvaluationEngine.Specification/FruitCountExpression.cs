@@ -24,9 +24,9 @@ namespace Appccelerate.EvaluationEngine
 
     public class FruitCountExpression : IExpression<int>
     {
-        public string Kind { get; set; }
+        public string Kind { private get; set; }
 
-        public int NumberOfFruits { get; set; }
+        public int NumberOfFruits { private get; set; }
 
         public int Evaluate(Missing parameter)
         {

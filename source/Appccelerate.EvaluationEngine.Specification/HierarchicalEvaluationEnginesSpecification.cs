@@ -18,6 +18,8 @@
 
 namespace Appccelerate.EvaluationEngine
 {
+    using System;
+
     using FluentAssertions;
 
     using Machine.Specifications;
@@ -32,22 +34,17 @@ namespace Appccelerate.EvaluationEngine
                 childAnswer = ChildEngine.Answer(new Question());
             };
 
-        It should_override_parent_aggregator_with_child_aggregator = () =>
-            {
-                childAnswer.Should().Contain(ChildAggregator);
-            };
+        It should_override_parent_aggregator_with_child_aggregator = () => 
+            childAnswer.Should().Contain(ChildAggregator);
 
-        It should_use_expressions_from_child_and_parent = () =>
-            {
-                childAnswer
-                    .Should().Contain(ParentExpression)
-                    .And.Contain(ChildExpression);
-            };
+        It should_use_expressions_from_child_and_parent = () => 
+            childAnswer
+                .Should().Contain(ParentExpression)
+                .And.Contain(ChildExpression);
 
         It should_evaluate_expressions_from_parent_first = () =>
-            {
-                childAnswer.EndsWith(ParentExpression + ChildExpression);
-            };
+            childAnswer.EndsWith(ParentExpression + ChildExpression, StringComparison.Ordinal)
+                .Should().BeTrue();
     }
 
     [Subject(Concern.HierarchicalEngines)]
@@ -60,15 +57,11 @@ namespace Appccelerate.EvaluationEngine
                 parentAnswer = ParentEngine.Answer(new Question());
             };
 
-        It should_use_parent_aggregator = () =>
-            {
-                parentAnswer.Should().Contain(ParentAggregator);
-            };
+        It should_use_parent_aggregator = () => 
+            parentAnswer.Should().Contain(ParentAggregator);
 
-        It should_use_expressions_only_from_parent = () =>
-            {
-                parentAnswer.ShouldNotContain(ChildExpression);
-            };
+        It should_use_expressions_only_from_parent = () => 
+            parentAnswer.ShouldNotContain(ChildExpression);
     }
 
     [Subject(Concern.HierarchicalEngines)]

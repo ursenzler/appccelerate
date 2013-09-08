@@ -24,13 +24,11 @@ namespace Appccelerate.EvaluationEngine
     {
         public string ReceivedParameter { get; private set; }
 
-        public int Result { get; set; }
-
         public int Evaluate(string parameter)
         {
             this.ReceivedParameter = parameter;
 
-            return this.Result;
+            return 42;
         }
 
         public string Describe()

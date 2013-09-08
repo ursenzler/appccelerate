@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------
-// <copyright file="ParameterizedFruitExpression.cs" company="Appccelerate">
+// <copyright file="ParametrizedFruitExpression.cs" company="Appccelerate">
 //   Copyright (c) 2008-2013
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,11 +20,11 @@ namespace Appccelerate.EvaluationEngine
 {
     using Appccelerate.EvaluationEngine.Expressions;
 
-    public class ParameterizedFruitExpression : IExpression<int, char>
+    public class ParametrizedFruitExpression : IExpression<int, char>
     {
-        public string Kind { get; set; }
+        public string Kind { private get; set; }
 
-        public int Count { get; set; }
+        public int Count { private get; set; }
 
         public int Evaluate(char parameter)
         {

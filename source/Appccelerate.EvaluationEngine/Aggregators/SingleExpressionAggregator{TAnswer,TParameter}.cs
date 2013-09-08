@@ -40,6 +40,7 @@ namespace Appccelerate.EvaluationEngine.Aggregators
         /// <returns>The answer.</returns>
         public TAnswer Aggregate(IEnumerable<IExpression<TAnswer, TParameter>> expressions, TParameter parameter, Context context)
         {
+            expressions = expressions.ToList();
             CheckSingleExpression(expressions);
 
             return expressions.ElementAt(0).Evaluate(parameter);
@@ -54,6 +55,7 @@ namespace Appccelerate.EvaluationEngine.Aggregators
             return "single expression aggregator";
         }
 
+        // ReSharper disable once UnusedParameter.Local
         private static void CheckSingleExpression(IEnumerable<IExpression<TAnswer, TParameter>> expressions)
         {
             if (expressions.Count() != 1)

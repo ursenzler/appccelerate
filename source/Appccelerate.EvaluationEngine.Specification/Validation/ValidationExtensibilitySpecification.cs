@@ -36,19 +36,18 @@ namespace Appccelerate.EvaluationEngine.Validation
         private static IMyValidationResult answer;
 
         Because of = () =>
-            {
-                answer = Engine.Answer(new IsDataValid(), new Data { Name = "Tester" });
-            };
+                answer = Engine.Answer(
+                    new IsDataValid(), 
+                    new Data
+                        {
+                            Name = "Tester"
+                        });
 
-        It should_return_valid_validation_result = () =>
-            {
-                answer.Valid.ShouldBeTrue();
-            };
+        It should_return_valid_validation_result = () => 
+            answer.Valid.ShouldBeTrue();
 
-        It should_return_validation_result_without_violations = () =>
-            {
-                answer.Violations.ShouldBeEmpty();
-            };
+        It should_return_validation_result_without_violations = () => 
+            answer.Violations.ShouldBeEmpty();
     }
 
     [Subject(Concern.ValidationExtensibility)]
@@ -57,14 +56,15 @@ namespace Appccelerate.EvaluationEngine.Validation
         private static IMyValidationResult answer;
 
         Because of = () =>
-        {
-            answer = Engine.Answer(new IsDataValid(), new Data { Name = null });
-        };
+            answer = Engine.Answer(
+                new IsDataValid(), 
+                new Data
+                    {
+                        Name = null
+                    });
 
-        It should_return_invalid_validation_result = () =>
-            {
-                answer.Valid.ShouldBeFalse();
-            };
+        It should_return_invalid_validation_result = () => 
+            answer.Valid.ShouldBeFalse();
 
         It should_return_validation_result_with_violations = () =>
             {
@@ -74,17 +74,14 @@ namespace Appccelerate.EvaluationEngine.Validation
                 answer.Violations.Single().ViolationHint.Should().Be(Hint);
             };
 
-        It should_return_violations_with_reason_set_by_failing_rule = () =>
-            {
-                answer.Violations.Single().Reason.Should().Be(NameIsEmptyReason);
-            };
+        It should_return_violations_with_reason_set_by_failing_rule = () => 
+            answer.Violations.Single().Reason.Should().Be(NameIsEmptyReason);
 
-        It should_return_violations_with_extended_data = () =>
-        {
+        It should_return_violations_with_extended_data = () => 
             answer.Violations.Single().ViolationHint.Should().Be(Hint);
-        };
     }
 
+    [Subject(Concern.ValidationExtensibility)]
     public class ValidationExtensibilityContext
     {
         protected const string NameIsEmptyReason = "Name is empty";
@@ -141,7 +138,9 @@ namespace Appccelerate.EvaluationEngine.Validation
                     result.Valid = false;
 
                     var validationViolation = this.Factory.CreateValidationViolation();
+                    // ReSharper disable once RedundantNameQualifier
                     validationViolation.Reason = ValidationExtensibilityContext.NameIsEmptyReason;
+                    // ReSharper disable once RedundantNameQualifier
                     validationViolation.ViolationHint = ValidationExtensibilityContext.Hint;
                     result.AddViolation(validationViolation);
                 }

@@ -32,13 +32,12 @@ namespace Appccelerate.EvaluationEngine.ExpressionProviders
         where TQuestion : IQuestion<TAnswer, TParameter>
     {
         /// <summary>
-        /// Gets or sets the condition function.
+        /// Gets the condition function.
         /// </summary>
         /// <value>The condition function.</value>
         Func<TQuestion, bool> Condition
         {
             get;
-            set;
         }
 
         /// <summary>

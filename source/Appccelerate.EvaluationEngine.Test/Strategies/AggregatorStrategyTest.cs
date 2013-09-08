@@ -101,11 +101,11 @@ namespace Appccelerate.EvaluationEngine.Strategies
             aggregatorMock.Verify(aggregator => aggregator.Aggregate(expressions, expectedParameter, It.IsAny<Context>()));
         }
 
-        public class TestQuestion : Question<string, int>
+        private class TestQuestion : Question<string, int>
         {
         }
 
-        public class TestExpression<TExpressionResult> : EvaluationExpression<TExpressionResult, int>
+        private class TestExpression<TExpressionResult> : EvaluationExpression<TExpressionResult, int>
         {
             public override TExpressionResult Evaluate(int parameter)
             {
@@ -115,7 +115,10 @@ namespace Appccelerate.EvaluationEngine.Strategies
 
         private class TestableDefinition<TExpressionResult> : IDefinition<TestQuestion, string, int, TExpressionResult>
         {
-            public Type QuestionType { get; set; }
+            public Type QuestionType
+            {
+                get { throw new NotImplementedException(); }
+            }
 
             public IStrategy<string, int> Strategy { get; set; }
 

@@ -79,7 +79,7 @@ namespace Appccelerate.EvaluationEngine.Internals
             builder.Should().BeSameAs(builderMock.Object);
         }
 
-        public class TestQuestion : Question<string, int>
+        private class TestQuestion : Question<string, int>
         {
         }
     }

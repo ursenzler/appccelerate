@@ -89,12 +89,11 @@ namespace Appccelerate.EvaluationEngine
             Answer = Engine.Answer(new HowManyFruitsAreThere());
         };
 
-        It should_evaluate_all_expressions_for_the_question = () =>
-        {
+        It should_evaluate_all_expressions_for_the_question = () => 
             Answer.Should().Be(5);
-        };
     }
 
+    [Subject(Concern.Solve)]
     public class HowManyFruitsAreThereContext
     {
         Establish context = () =>

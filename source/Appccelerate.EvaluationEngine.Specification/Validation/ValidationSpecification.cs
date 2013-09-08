@@ -36,19 +36,18 @@ namespace Appccelerate.EvaluationEngine.Validation
         private static IValidationResult answer;
 
         Because of = () =>
-            {
-                answer = Engine.Answer(new IsDataValid(), new Data { Name = "Tester", Description = "A tester" });
-            };
+            answer = Engine.Answer(
+                new IsDataValid(), 
+                new Data
+                    {
+                        Name = "Tester"
+                    });
 
-        It should_return_valid_validation_result = () =>
-            {
-                answer.Valid.ShouldBeTrue();
-            };
+        It should_return_valid_validation_result = () => 
+            answer.Valid.ShouldBeTrue();
 
-        It should_return_validation_result_without_violations = () =>
-            {
-                answer.Violations.ShouldBeEmpty();
-            };
+        It should_return_validation_result_without_violations = () => 
+            answer.Violations.ShouldBeEmpty();
     }
 
     [Subject(Concern.Validation)]
@@ -57,26 +56,24 @@ namespace Appccelerate.EvaluationEngine.Validation
         private static IValidationResult answer;
 
         Because of = () =>
-        {
-            answer = Engine.Answer(new IsDataValid(), new Data { Name = null, Description = "A tester" });
-        };
+            answer = Engine.Answer(
+                new IsDataValid(), 
+                new Data
+                    {
+                        Name = null, 
+                    });
 
-        It should_return_invalid_validation_result = () =>
-            {
-                answer.Valid.ShouldBeFalse();
-            };
+        It should_return_invalid_validation_result = () => 
+            answer.Valid.ShouldBeFalse();
 
-        It should_return_validation_result_with_violations = () =>
-            {
-                answer.Violations.Should().HaveCount(1);
-            };
+        It should_return_validation_result_with_violations = () => 
+            answer.Violations.Should().HaveCount(1);
 
-        It should_return_violations_with_reason_set_by_failing_rule = () =>
-        {
+        It should_return_violations_with_reason_set_by_failing_rule = () => 
             answer.Violations.Single().Reason.Should().Be(ViolationReason);
-        };
     }
 
+    [Subject(Concern.Validation)]
     public class DataValidationContext
     {
         protected const string ViolationReason = "Name is empty";
@@ -104,8 +101,6 @@ namespace Appccelerate.EvaluationEngine.Validation
         protected class Data
         {
             public string Name { get; set; }
-
-            public string Description { get; set; }
         }
 
         protected class NameSetRule : EvaluationExpression<IValidationResult, Data>

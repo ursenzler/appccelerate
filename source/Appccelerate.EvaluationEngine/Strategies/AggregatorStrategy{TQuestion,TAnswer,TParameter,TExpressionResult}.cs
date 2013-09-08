@@ -68,6 +68,7 @@ namespace Appccelerate.EvaluationEngine.Strategies
             return "aggregator strategy";
         }
 
+        // ReSharper disable once UnusedParameter.Local
         private static void CheckAggregatorNotNull(IAggregator<TExpressionResult, TAnswer, TParameter> aggregator)
         {
             if (aggregator == null)

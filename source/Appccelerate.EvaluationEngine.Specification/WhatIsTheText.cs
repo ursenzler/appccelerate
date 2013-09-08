@@ -18,8 +18,6 @@
 
 namespace Appccelerate.EvaluationEngine
 {
-    using System;
-
     public class WhatIsTheText : IQuestion<string>
     {
         public string Describe()

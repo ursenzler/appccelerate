@@ -19,6 +19,7 @@
 namespace Appccelerate.EvaluationEngine.Validation.Aggregators
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Appccelerate.EvaluationEngine.Expressions;
 
@@ -52,6 +53,7 @@ namespace Appccelerate.EvaluationEngine.Validation.Aggregators
         /// <returns>Aggregated validation result.</returns>
         public TValidationResult Aggregate(IEnumerable<IExpression<TValidationResult, TParameter>> expressions, TParameter parameter, Context context)
         {
+            expressions = expressions.ToList();
             Ensure.ArgumentNotNull(expressions, "expressions");
 
             var result = this.factory.CreateValidationResult();
